@@ -1,30 +1,48 @@
 package com.latesummer.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
- * Created by tengj on 2017/3/29.
+ * 
+ * @author Jenvi Sue
+ *
  */
+
+@Entity
 public class User {
-    private String userName;
-    private String passWord;
+	@Id
+	@GeneratedValue
+	private Long id;
+	@Column(nullable = false)
+	private String name;
+	@Column(nullable = false)
+	private Integer age;
 
-    public User(String userName, String passWord) {
-        this.userName = userName;
-        this.passWord = passWord;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public String getUserName() {
-        return userName;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getPassWord() {
-        return passWord;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
-    }
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+
 }
