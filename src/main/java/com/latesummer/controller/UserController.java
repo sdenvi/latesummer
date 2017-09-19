@@ -16,7 +16,7 @@ public class UserController {
 	@Autowired
 	private IUserService userService;
 
-	@RequestMapping(value = "/add/{id}/{name}/{address}")
+	@RequestMapping(value = "/add/{id}/{name}/{age}")
 	public User addUser(@PathVariable Long id, @PathVariable String name, @PathVariable Integer age) {
 		User user = new User();
 		user.setId(id);
