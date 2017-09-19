@@ -2,7 +2,9 @@ package com.latesummer.service.impl;
 
 import com.latesummer.dao.LearnMapper;
 import com.latesummer.domain.LearnResouce;
-import com.latesummer.service.LearnService;
+import com.latesummer.domain.LearnResouceRepository;
+import com.latesummer.domain.UserRepository;
+import com.latesummer.service.ILearnService;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,16 +13,16 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by tengj on 2017/4/7.
+ *Cteate By Jenvi Sue On 2017年9月19日
  */
 @Service
-public class LearnServiceImpl implements LearnService {
+public class LearnServiceImpl implements ILearnService {
 
-    @Autowired
-    LearnMapper learnMapper;
+	@Autowired
+    private LearnResouceRepository learnResouceRepository;
     @Override
-    public int add(LearnResouce learnResouce) {
-        return this.learnMapper.add(learnResouce);
+    public void saveLearnResouce(LearnResouce learnResouce) {
+        return learnResouceRepository.save(learnResouce);
     }
 
     @Override

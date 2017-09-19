@@ -26,7 +26,6 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public void saveUser(User book) {
 		userRepository.save(book);
-		
 	}
 
 	@Cacheable("users")
