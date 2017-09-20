@@ -1,9 +1,8 @@
-package com.latesummer.service;
+/*package com.latesummer.service;
 
 import java.util.List;
 
 import com.latesummer.domain.User;
-
 
 public interface IUserService
 {
@@ -17,4 +16,4 @@ public interface IUserService
 
     public List<User> findByName(String name);
 
-}
+}*/

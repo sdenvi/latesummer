@@ -5,14 +5,13 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import com.latesummer.domain.User;
 
 
 /**
- * 
- * @author Jenvi Sue
- *
+ * Create By Jenvi Sue On 2017年9月20日
  */
 public interface UserRepository extends JpaRepository<User, Long> {
 

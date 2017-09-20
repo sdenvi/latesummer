@@ -1,4 +1,4 @@
-package com.latesummer.controller;
+/*package com.latesummer.controller;
 
 import java.util.List;
 
@@ -48,4 +48,4 @@ public class UserController {
 		return users;
 	}
 
-}
+}*/

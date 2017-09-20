@@ -1,8 +1,4 @@
-/*
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`latesummer` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
-USE `latesummer`;
-*/
 
 DROP TABLE IF EXISTS `user`;
 
