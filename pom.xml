@@ -22,6 +22,10 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<emoji.version>3.2.0</emoji.version>
+		<commonmark.version>0.9.0</commonmark.version>
+		<blade-tpl.verion>0.1.0</blade-tpl.verion>
+		<rome.version>1.0</rome.version>
 	</properties>
 
 	<dependencies>
@@ -98,6 +102,46 @@
             <artifactId>lombok</artifactId>
             <version>1.16.18</version>
             <scope>compile</scope>
+        </dependency>
+        
+        <!--过滤 emoji 字符-->
+        <dependency>
+            <groupId>com.vdurmont</groupId>
+            <artifactId>emoji-java</artifactId>
+            <version>${emoji.version}</version>
+        </dependency>
+        
+        <!--markdown处理-->
+        <dependency>
+            <groupId>com.atlassian.commonmark</groupId>
+            <artifactId>commonmark</artifactId>
+            <version>${commonmark.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.atlassian.commonmark</groupId>
+            <artifactId>commonmark-ext-gfm-tables</artifactId>
+            <version>${commonmark.version}</version>
+        </dependency>
+        
+        <!-- 模板引擎 -->
+        <dependency>
+            <groupId>com.bladejava</groupId>
+            <artifactId>blade-template-jetbrick</artifactId>
+            <version>${blade-tpl.verion}</version>
+        </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+		<dependency>
+		    <groupId>io.netty</groupId>
+		    <artifactId>netty-all</artifactId>
+		    <version>4.1.15.Final</version>
+		</dependency>
+        
+        <!--RSS输出-->
+        <dependency>
+            <groupId>rome</groupId>
+            <artifactId>rome</artifactId>
+            <version>${rome.version}</version>
         </dependency>
 		
 		<!-- maven添加本地jar -->

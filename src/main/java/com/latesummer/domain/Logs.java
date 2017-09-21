@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import com.latesummer.tools.DateUtil;
+import com.latesummer.utils.DateUtil;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

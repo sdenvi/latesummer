@@ -1,6 +1,8 @@
 package com.latesummer.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 import lombok.Data;
 
@@ -12,6 +14,8 @@ import lombok.Data;
 @Entity
 public class Metas {
 
+	@Id
+	@GeneratedValue
     // 项目主键
     private Integer mid;
     // 名称

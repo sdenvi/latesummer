@@ -1,4 +1,4 @@
-/*package com.latesummer.service.impl;
+package com.latesummer.service.impl;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.latesummer.dao.UserRepository;
 import com.latesummer.domain.User;
-import com.latesummer.domain.UserRepository;
 import com.latesummer.service.IUserService;
 
 @Service
@@ -44,4 +44,4 @@ public class UserServiceImpl implements IUserService {
         return userRepository.findByName(name);
 	}
 	
-}*/
+}
