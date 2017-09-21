@@ -2,14 +2,15 @@ package com.latesummer.tools;
 
 import org.apache.commons.lang3.time.DateFormatUtils;
 
+import java.time.Instant;
 import java.util.Date;
 
 /**
  * 项目名称：账号安全中心(all)   
  * 类名称：DateUtil   
  * 类描述：   时间操作工具
- * 创建人：linwu   
- * 创建时间：2014-12-17 上午10:43:08       
+ * 创建人：Jenvi Sue   
+ * 创建时间：2017-09-21
  * @version
  */
 public class DateUtil {
@@ -53,4 +54,11 @@ public class DateUtil {
 		return DateFormatUtils.format(date, pattern);
 	}
 	
+	/**
+	 * 生成Unix时间
+	 * @return
+	 */
+	public static int nowUnix() {
+		return (int) Instant.now().getEpochSecond();
+	}
 }

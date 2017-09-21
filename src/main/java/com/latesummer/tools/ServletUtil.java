@@ -325,6 +325,28 @@ public class ServletUtil {
 
 		return ip;
 	}
+	
+	/**
+	 * 获取报文IP
+	 * @param request
+	 * @return
+	 */
+	public static String ipAddr(HttpServletRequest request) {
+		String ipAddress = request.getHeader("x-forwarded-for");
+		if ((StringUtil.isBlank(ipAddress)) || ("unknown".equalsIgnoreCase(ipAddress))) {
+			ipAddress = request.getHeader("Proxy-Client-IP");
+		}
+		if ((StringUtil.isBlank(ipAddress)) || ("unknown".equalsIgnoreCase(ipAddress))) {
+			ipAddress = request.getHeader("WL-Proxy-Client-IP");
+		}
+		if ((StringUtil.isBlank(ipAddress)) || ("unknown".equalsIgnoreCase(ipAddress))) {
+			ipAddress = request.getHeader("X-Real-IP");
+		}
+		if (StringUtil.isBlank(ipAddress)) {
+			ipAddress = "127.0.0.1";
+		}
+		return ipAddress;
+	}
 
 	/**
 	 * 获取带参数的URL串
