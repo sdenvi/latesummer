@@ -1,8 +1,10 @@
-package com.latesummer.domain;
+package com.latesummer.model.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.Data;
 
@@ -12,14 +14,17 @@ import lombok.Data;
  */
 @Data
 @Entity
+@Table(name = "t_relationships")
 public class Relationships {
 
 	@Id
 	@GeneratedValue
     // 内容主键
+	@Column(nullable = false)
     private Integer cid;
 
     // 项目主键
+	@Column(nullable = false)
     private Integer mid;
 
 }

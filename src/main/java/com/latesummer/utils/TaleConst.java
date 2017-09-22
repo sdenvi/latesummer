@@ -3,7 +3,7 @@ package com.latesummer.utils;
 
 import java.util.*;
 
-import com.latesummer.domain.dto.PluginMenu;
+import com.latesummer.model.dto.PluginMenu;
 
 /**
  * 常量存储

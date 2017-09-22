@@ -1,4 +1,4 @@
-/*package com.latesummer.controller;
+package com.latesummer.controller;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.latesummer.domain.User;
+import com.latesummer.model.entity.User;
 import com.latesummer.service.IUserService;
 
 @RestController
@@ -27,7 +27,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/delete/{id}")
-	public void deleteBook(@PathVariable int id) {
+	public void deleteBook(@PathVariable Long id) {
 		userService.delete(id);
 	}
 
@@ -37,7 +37,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/{id}")
-	public User getUser(@PathVariable int id) {
+	public User getUser(@PathVariable Long id) {
 		User user = userService.findOne(id);
 		return user;
 	}
@@ -48,4 +48,4 @@ public class UserController {
 		return users;
 	}
 
-}*/
+}

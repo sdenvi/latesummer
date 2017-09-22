@@ -1,6 +1,6 @@
 package com.latesummer.extension;
 
-import com.latesummer.domain.Metas;
+import com.latesummer.model.entity.Metas;
 import com.latesummer.utils.StringUtil;
 
 /**

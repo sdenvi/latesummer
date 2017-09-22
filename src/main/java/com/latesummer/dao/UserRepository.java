@@ -6,7 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.latesummer.domain.User;
+import com.latesummer.model.entity.User;
+
 
 /**
  * Create By Jenvi Sue On 2017年9月20日

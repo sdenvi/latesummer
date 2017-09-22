@@ -2,7 +2,8 @@ package com.latesummer.service;
 
 import java.util.List;
 
-import com.latesummer.domain.User;
+import com.latesummer.model.entity.User;
+
 
 public interface IUserService {
 	public List<User> findAll();

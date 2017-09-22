@@ -1,18 +1,20 @@
-package com.latesummer.domain;
+package com.latesummer.model.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.Data;
 
 /**
  * 评论
- *
- * @author biezhi
+ * Create By Jenvi Sue On 2017年9月22日
  */
-@Data
 @Entity
+@Data
+@Table(name = "t_comments") 
 public class Comments {
 
 	@Id
@@ -21,18 +23,23 @@ public class Comments {
     private Integer coid;
 
     // post表主键,关联字段
+	@Column(nullable = false)
     private Integer cid;
 
     // 评论生成时的GMT unix时间戳
+	@Column(nullable = false)
     private Integer created;
 
     // 评论作者
+	@Column(nullable = false)
     private String author;
 
     // 评论所属用户id
+	@Column(columnDefinition = "INT default 0")
     private Integer author_id;
 
     // 评论所属内容作者id
+	@Column(columnDefinition = "INT default 0")
     private Integer owner_id;
 
     // 评论者邮件
@@ -57,6 +64,7 @@ public class Comments {
     private String status;
 
     // 父级评论
+	@Column(columnDefinition = "INT default 0")
     private Integer parent;
 
 }

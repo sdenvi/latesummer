@@ -1,4 +1,4 @@
-package com.latesummer.domain;
+package com.latesummer.model.param;
 
 import lombok.Data;
 

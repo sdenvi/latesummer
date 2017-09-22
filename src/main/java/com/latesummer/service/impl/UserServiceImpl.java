@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.latesummer.dao.UserRepository;
-import com.latesummer.domain.User;
+import com.latesummer.model.entity.User;
 import com.latesummer.service.IUserService;
 
 @Service

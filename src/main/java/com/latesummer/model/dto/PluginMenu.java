@@ -1,4 +1,4 @@
-package com.latesummer.domain.dto;
+package com.latesummer.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

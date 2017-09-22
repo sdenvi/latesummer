@@ -1,11 +1,11 @@
-package com.latesummer.domain.dto;
+package com.latesummer.model.dto;
 
 import lombok.Data;
 import lombok.ToString;
 
 import java.util.List;
 
-import com.latesummer.domain.Comments;
+import com.latesummer.model.entity.Comments;
 
 /**
  * Create By Jenvi Sue On 2017年9月21日

@@ -5,8 +5,8 @@ import org.apache.catalina.Session;
 import org.commonmark.renderer.html.HtmlRenderer;
 import org.springframework.ui.context.Theme;
 
-import com.latesummer.domain.Contents;
-import com.latesummer.domain.Users;
+import com.latesummer.model.entity.Contents;
+import com.latesummer.model.entity.Users;
 import com.latesummer.extension.Commons;
 import com.latesummer.utils.WebContext;
 import com.sun.syndication.feed.rss.Channel;

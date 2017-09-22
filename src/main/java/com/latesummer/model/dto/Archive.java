@@ -1,11 +1,12 @@
-package com.latesummer.domain.dto;
+package com.latesummer.model.dto;
 
 import lombok.Data;
 
 import java.util.Date;
 import java.util.List;
 
-import com.latesummer.domain.Contents;
+import com.latesummer.model.entity.Contents;
+
 
 /**
  * 文章归档
