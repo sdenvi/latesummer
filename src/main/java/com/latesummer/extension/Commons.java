@@ -3,8 +3,8 @@ package com.latesummer.extension;
 import com.latesummer.utils.DateUtil;
 import com.latesummer.utils.EncryptUtil;
 import com.latesummer.utils.StringUtil;
-import com.latesummer.utils.TaleConst;
-import com.latesummer.utils.TaleUtils;
+import com.latesummer.utils.LSConst;
+import com.latesummer.utils.LSUtils;
 import com.latesummer.utils.UUID;
 import com.vdurmont.emoji.EmojiParser;
 
@@ -227,7 +227,7 @@ public final class Commons {
      * @return
      */
     public static String show_thumb(String content) {
-        content = TaleUtils.mdToHtml(content);
+        content = LSUtils.mdToHtml(content);
         if (content.contains("<img")) {
             String img = "";
             String regEx_img = "<img.*src\\s*=\\s*(.*?)[^>]*?>";

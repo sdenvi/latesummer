@@ -9,7 +9,7 @@ import com.latesummer.model.dto.PluginMenu;
  * 常量存储
  * Create By Jenvi Sue On 2017年9月21日
  */
-public class TaleConst {
+public class LSConst {
 
     public static final String      USER_IN_COOKIE    = "S_L_ID";
     public static       String      AES_SALT          = "0123456789abcdef";

@@ -32,14 +32,14 @@ import java.util.regex.Pattern;
  * 工具类
  * Create By Jenvi Sue On 2017年9月21日
  */
-public class TaleUtils {
+public class LSUtils {
 
 	/**
 	 * 一个月
 	 */
 	private static final int one_month = 30 * 24 * 60 * 60;
 	private static final Random r = new Random();
-	private static final Hashids hashIds = new Hashids(TaleConst.AES_SALT);
+	private static final Hashids hashIds = new Hashids(LSConst.AES_SALT);
 	private static final long[] hashPrefix = { -1, 2, 0, 1, 7, 0, 9 };
 
 	/**
