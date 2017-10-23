@@ -3,11 +3,10 @@ package com.latesummer.controller;
 import org.apache.catalina.connector.Request;
 
 import com.latesummer.model.entity.Users;
-import com.latesummer.utils.LSUtils;
 import com.latesummer.utils.MapCache;
 
 /**
- * Created by biezhi on 2017/2/21.
+ * Create By Jenvi Sue On 2017年9月27日
  */
 public abstract class BaseController {
 

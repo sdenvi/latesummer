@@ -2,6 +2,7 @@ package com.latesummer.utils;
 
 import javax.imageio.ImageIO;
 import org.apache.catalina.Session;
+import org.apache.catalina.connector.Response;
 import org.commonmark.renderer.html.HtmlRenderer;
 import org.springframework.ui.context.Theme;
 
@@ -56,21 +57,20 @@ public class LSUtils {
 	 * @param response
 	 * @param uid
 	 */
-	/*public static void setCookie(Response response, Integer uid) {
-		try {
-			hashPrefix[0] = uid;
-			String val = hashIds.encode(hashPrefix);
-			hashPrefix[0] = -1;
-			// String val = new String(EncrypKit.encryptAES(uid.toString().getBytes(),
-			// TaleConst.AES_SALT.getBytes()));
-			boolean isSSL = Commons.site_url().startsWith("https");
-			response.cookie("/", TaleConst.USER_IN_COOKIE, val, one_month, isSSL);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+	public static void setCookie(Response response, Integer uid) {
+        try {
+            hashPrefix[0] = uid;
+            String val = hashIds.encode(hashPrefix);
+            hashPrefix[0] = -1;
+            //String  val   = new String(EncrypKit.encryptAES(uid.toString().getBytes(), TaleConst.AES_SALT.getBytes()));
+            boolean isSSL = Commons.site_url().startsWith("https");
+            //response.cookie("/", LSConst.USER_IN_COOKIE, val, one_month, isSSL);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-	*//**
+	/*/**
 	 * 返回当前登录用户
 	 *
 	 * @return

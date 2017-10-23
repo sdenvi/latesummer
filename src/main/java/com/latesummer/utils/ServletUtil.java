@@ -6,6 +6,8 @@ import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.alibaba.fastjson.serializer.SerializeFilter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.serializer.SimpleDateFormatSerializer;
+import com.latesummer.utils.http.Request;
+
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
@@ -331,16 +333,16 @@ public class ServletUtil {
 	 * @param request
 	 * @return
 	 */
-	public static String ipAddr(HttpServletRequest request) {
-		String ipAddress = request.getHeader("x-forwarded-for");
+	public static String ipAddr(Request request) {
+		String ipAddress = request.header("x-forwarded-for");
 		if ((StringUtil.isBlank(ipAddress)) || ("unknown".equalsIgnoreCase(ipAddress))) {
-			ipAddress = request.getHeader("Proxy-Client-IP");
+			ipAddress = request.header("Proxy-Client-IP");
 		}
 		if ((StringUtil.isBlank(ipAddress)) || ("unknown".equalsIgnoreCase(ipAddress))) {
-			ipAddress = request.getHeader("WL-Proxy-Client-IP");
+			ipAddress = request.header("WL-Proxy-Client-IP");
 		}
 		if ((StringUtil.isBlank(ipAddress)) || ("unknown".equalsIgnoreCase(ipAddress))) {
-			ipAddress = request.getHeader("X-Real-IP");
+			ipAddress = request.header("X-Real-IP");
 		}
 		if (StringUtil.isBlank(ipAddress)) {
 			ipAddress = "127.0.0.1";
