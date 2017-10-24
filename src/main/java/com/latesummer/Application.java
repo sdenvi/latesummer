@@ -24,17 +24,27 @@ public class Application {
 	public DataSource dataSource() {
 		DruidDataSource dataSource = new DruidDataSource();
 		dataSource.setUrl(env.getProperty("spring.datasource.url"));
-		dataSource.setUsername(env.getProperty("spring.datasource.username"));//用户名
-		dataSource.setPassword(env.getProperty("spring.datasource.password"));//密码
+		//用户名
+		dataSource.setUsername(env.getProperty("spring.datasource.username"));
+		//密码
+		dataSource.setPassword(env.getProperty("spring.datasource.password"));
 		dataSource.setDriverClassName(env.getProperty("spring.datasource.driver-class-name"));
-		dataSource.setInitialSize(2);//初始化时建立物理连接的个数
-		dataSource.setMaxActive(20);//最大连接池数量
-		dataSource.setMinIdle(0);//最小连接池数量
-		dataSource.setMaxWait(60000);//获取连接时最大等待时间，单位毫秒。
-		dataSource.setValidationQuery("SELECT 1");//用来检测连接是否有效的sql
-		dataSource.setTestOnBorrow(false);//申请连接时执行validationQuery检测连接是否有效
-		dataSource.setTestWhileIdle(true);//建议配置为true，不影响性能，并且保证安全性。
-		dataSource.setPoolPreparedStatements(false);//是否缓存preparedStatement，也就是PSCache
+		//初始化时建立物理连接的个数
+		dataSource.setInitialSize(Integer.valueOf(env.getProperty("spring.datasource.initial-size")));
+		//最大连接池数量
+		dataSource.setMaxActive(Integer.valueOf(env.getProperty("spring.datasource.initial-size")));
+		//最小连接池数量
+		dataSource.setMinIdle(Integer.valueOf(env.getProperty("spring.datasource.min-idle")));
+		//获取连接时最大等待时间，单位毫秒。
+		dataSource.setMaxWait(Integer.valueOf(env.getProperty("spring.datasource.max-wait")));
+		//用来检测连接是否有效的sql
+		dataSource.setValidationQuery(env.getProperty("spring.datasource.validation-query"));
+		//申请连接时执行validationQuery检测连接是否有效
+		dataSource.setTestOnBorrow(Boolean.valueOf(env.getProperty("spring.datasource.test-on-borrow")));
+		//建议配置为true，不影响性能，并且保证安全性。
+		dataSource.setTestWhileIdle(Boolean.valueOf(env.getProperty("spring.datasource.test-while-idle")));
+		//是否缓存preparedStatement，也就是PSCache
+		dataSource.setPoolPreparedStatements(Boolean.valueOf(env.getProperty("spring.datasource.pool-prepared-statements")));
 		return dataSource;
 	}
 }
