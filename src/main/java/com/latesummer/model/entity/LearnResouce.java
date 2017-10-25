@@ -1,6 +1,5 @@
 package com.latesummer.model.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,16 +14,15 @@ import lombok.Data;
  * @author Jenvi Sue
  *
  */
-
 @Entity
 @Data
-@Table(name = "user")
-public class User extends BaseEntity {
+@Table(name = "learn_resource")
+public class LearnResouce extends BaseEntity {
 	@Id
 	@GeneratedValue
-	private Long id;
-	@Column(nullable = false)
-	private String name;
-	@Column(nullable = false, unique = true)
-	private Integer age;
+    private Long id;
+    private String author;
+    private String title;
+    private String url;
+    
 }
