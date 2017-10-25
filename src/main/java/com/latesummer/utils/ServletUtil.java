@@ -6,7 +6,6 @@ import com.alibaba.fastjson.serializer.SerializeConfig;
 import com.alibaba.fastjson.serializer.SerializeFilter;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.serializer.SimpleDateFormatSerializer;
-import com.latesummer.utils.http.Request;
 
 import org.apache.log4j.Logger;
 
@@ -316,40 +315,22 @@ public class ServletUtil {
 	 * @return
 	 */
 	public static String getRemortIP(HttpServletRequest request) {
-		String ip = request.getHeader("x-forwarded-for");
-		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-			ip = request.getRemoteAddr();
-		}
-
-		if(ip.startsWith(",")){
-			ip = ip.substring(1, ip.length());
-		}
-
-		return ip;
-	}
-	
-	/**
-	 * 获取报文IP
-	 * @param request
-	 * @return
-	 */
-	public static String ipAddr(Request request) {
-		String ipAddress = request.header("x-forwarded-for");
+		String ipAddress = request.getHeader("x-forwarded-for");
 		if ((StringUtil.isBlank(ipAddress)) || ("unknown".equalsIgnoreCase(ipAddress))) {
-			ipAddress = request.header("Proxy-Client-IP");
+			ipAddress = request.getHeader("Proxy-Client-IP");
 		}
 		if ((StringUtil.isBlank(ipAddress)) || ("unknown".equalsIgnoreCase(ipAddress))) {
-			ipAddress = request.header("WL-Proxy-Client-IP");
+			ipAddress = request.getHeader("WL-Proxy-Client-IP");
 		}
 		if ((StringUtil.isBlank(ipAddress)) || ("unknown".equalsIgnoreCase(ipAddress))) {
-			ipAddress = request.header("X-Real-IP");
+			ipAddress = request.getHeader("X-Real-IP");
 		}
 		if (StringUtil.isBlank(ipAddress)) {
 			ipAddress = "127.0.0.1";
 		}
 		return ipAddress;
 	}
-
+	
 	/**
 	 * 获取带参数的URL串
 	 */
