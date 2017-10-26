@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
 import com.latesummer.model.entity.LearnResouce;
@@ -18,5 +19,5 @@ public interface ILearnService {
     void update(LearnResouce learnResouce);
     void deleteByIds(String[] ids);
     LearnResouce queryLearnResouceById(Long learnResouce);
-    public Page<LearnResouce> queryLearnResouceList(Pageable pageable);
+	Page<LearnResouce> queryLearnResouceList(Pageable pageable);
 }

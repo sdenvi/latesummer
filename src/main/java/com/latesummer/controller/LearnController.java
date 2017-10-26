@@ -11,7 +11,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,23 +44,18 @@ public class LearnController {
 
     @RequestMapping(value = "/queryLeanList",method = RequestMethod.POST,produces="application/json;charset=UTF-8")
     @ResponseBody
-    public void queryLearnList(HttpServletRequest request , HttpServletResponse response, Pageable pageable){
+    public void queryLearnList(HttpServletRequest request , HttpServletResponse response){
         String page = request.getParameter("page"); // 取得当前页数,注意这是jqgrid自身的参数
         String rows = request.getParameter("rows"); // 取得每页显示行数，,注意这是jqgrid自身的参数
         String author = request.getParameter("author");
         String title = request.getParameter("title");
-        Map<String,Object> params = new HashMap<String,Object>();
-        params.put("page", page);
-        params.put("rows", rows);
-        params.put("author", author);
-        params.put("title", title);
+        Sort sort = new Sort(Direction.DESC, "id");
+        Pageable pageable = new PageRequest(Integer.valueOf(page), 10, sort);
         Page<LearnResouce> learnList=learnService.queryLearnResouceList(pageable);
-        //PageInfo<LearnResouce> pageInfo =new PageInfo<LearnResouce>(learnList);
-
         JSONObject jo=new JSONObject();
         jo.put("rows", learnList);
-        //jo.put("total", pageInfo.getPages());//总页数
-        //jo.put("records",pageInfo.getTotal());//查询出的总记录数
+        jo.put("total", learnList.getTotalPages());//总页数
+        jo.put("records",learnList.getNumber());//查询出的总记录数
         ServletUtil.createSuccessResponse(200, jo, response);
     }
     /**

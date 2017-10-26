@@ -38,8 +38,6 @@ public class UserController {
 
 	@RequestMapping(value = "/")
 	public Page<User> getBooks(@PageableDefault(value = 2, sort = { "id" }, direction = Direction.DESC) Pageable pageable) {
-		System.out.println();
-		System.out.println();
 		return userService.findAll(pageable);
 	}
 
