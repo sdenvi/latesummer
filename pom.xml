@@ -85,6 +85,25 @@
             <scope>compile</scope>
         </dependency>
         
+        <dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+		
+		<!-- 这里swagger-ui是swagger的默认实现,这个jar可以不用引入,使用下面的swagger-bootstrap-ui替代 -->
+		<dependency>
+		 <groupId>io.springfox</groupId>
+		 <artifactId>springfox-swagger-ui</artifactId>
+		 <version>2.2.2</version>
+		</dependency>
+        
+        <dependency>
+		  <groupId>com.github.xiaoymin</groupId>
+		  <artifactId>swagger-bootstrap-ui</artifactId>
+		  <version>1.6</version>
+		</dependency>
+        
 		<!-- maven添加本地jar -->
 		<!-- 
 		<dependency>  
