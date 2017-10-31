@@ -3,11 +3,7 @@ package com.latesummer.dao;
 import com.latesummer.base.BaseRepository;
 import com.latesummer.model.entity.LearnResouce;
 
-import java.util.List;
-import java.util.Map;
-
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
 /**

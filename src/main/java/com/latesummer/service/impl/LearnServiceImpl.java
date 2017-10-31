@@ -49,6 +49,9 @@ public class LearnServiceImpl implements ILearnService {
 
     @Override
     public Page<LearnResouce> queryLearnResouceList(Pageable pageable) {
+    	System.out.println("-------------------------------------------------------");
+    	System.out.println(learnRepository.findAll(pageable).iterator());
+    	System.out.println("-------------------------------------------------------");
         return learnRepository.findAll(pageable);
     }
 }
