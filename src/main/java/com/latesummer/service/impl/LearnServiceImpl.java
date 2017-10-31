@@ -2,6 +2,7 @@ package com.latesummer.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -48,6 +49,9 @@ public class LearnServiceImpl implements ILearnService {
 
     @Override
     public Page<LearnResouce> queryLearnResouceList(Pageable pageable) {
+    	System.out.println("-------------------------------------------------------");
+    	System.out.println(learnRepository.findAll(pageable).iterator());
+    	System.out.println("-------------------------------------------------------");
         return learnRepository.findAll(pageable);
     }
 }
