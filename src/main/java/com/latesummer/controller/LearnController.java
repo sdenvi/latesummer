@@ -86,8 +86,8 @@ public class LearnController {
     }
 
     @RequestMapping("/t")
-    public ModelAndView index2(){
-
+    @ResponseBody
+    public List<LearnResouce> index2(){
         List<LearnResouce> learnList =new ArrayList<LearnResouce>();
         LearnResouce bean =new LearnResouce("官方参考文档","Spring Boot Reference Guide","http://docs.spring.io/spring-boot/docs/1.5.1.RELEASE/reference/htmlsingle/#getting-started-first-application");
         learnList.add(bean);
@@ -109,9 +109,10 @@ public class LearnController {
         learnList.add(bean);
         bean =new LearnResouce("林祥纤博客系列","从零开始学Spring Boot ","http://412887952-qq-com.iteye.com/category/356333");
         learnList.add(bean);
-        ModelAndView modelAndView = new ModelAndView("/template");
-        modelAndView.addObject("learnList", learnList);
-        return modelAndView;
+        //ModelAndView modelAndView = new ModelAndView("/template");
+        //modelAndView.addObject("learnList", learnList);
+        //return modelAndView;
+        return learnList;
     }
     
     
