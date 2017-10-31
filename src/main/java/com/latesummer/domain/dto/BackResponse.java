@@ -1,4 +1,4 @@
-package com.latesummer.model.dto;
+package com.latesummer.domain.dto;
 
 import lombok.Data;
 

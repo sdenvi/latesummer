@@ -1,4 +1,4 @@
-package com.latesummer.model.dto;
+package com.latesummer.domain.dto;
 
 /**
  * Create By Jenvi Sue On 2017年9月21日

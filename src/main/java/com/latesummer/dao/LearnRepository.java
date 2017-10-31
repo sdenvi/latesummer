@@ -1,7 +1,7 @@
 package com.latesummer.dao;
 
 import com.latesummer.base.BaseRepository;
-import com.latesummer.model.entity.LearnResouce;
+import com.latesummer.domain.entity.LearnResouce;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

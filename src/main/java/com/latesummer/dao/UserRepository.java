@@ -4,10 +4,8 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-
 import com.latesummer.base.BaseRepository;
-import com.latesummer.model.entity.User;
-
+import com.latesummer.domain.entity.User;
 
 /**
  * Create By Jenvi Sue On 2017年9月20日

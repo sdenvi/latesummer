@@ -8,7 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
-import com.latesummer.model.entity.LearnResouce;
+import com.latesummer.domain.entity.LearnResouce;
 
 /**
  * Create By Jenvi Sue On 2017年10月25日

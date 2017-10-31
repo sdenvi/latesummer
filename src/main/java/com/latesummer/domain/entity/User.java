@@ -1,4 +1,4 @@
-package com.latesummer.model.entity;
+package com.latesummer.domain.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

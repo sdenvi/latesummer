@@ -2,17 +2,13 @@ package com.latesummer.controller;
 
 
 import com.alibaba.fastjson.JSONObject;
-import com.latesummer.dao.LearnRepository;
-import com.latesummer.model.entity.LearnResouce;
+import com.latesummer.domain.entity.LearnResouce;
 import com.latesummer.service.ILearnService;
-import com.latesummer.utils.PageUtils;
 import com.latesummer.utils.ServletUtil;
-import com.latesummer.utils.StringUtil;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.core.Predicate;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -24,17 +20,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 教程页面
@@ -43,22 +33,18 @@ import java.util.Map;
 @Controller
 @RequestMapping("/learn")
 public class LearnController {
-    //@Autowired
-    /*private ILearnService learnService;
-    private LearnRepository learnRepository;
-    private Logger logger = LoggerFactory.getLogger(this.getClass());*/
+    @Autowired
+    private ILearnService learnService;
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @RequestMapping("")
     public String learn(){
         return "learn-resource";
     }
     
-    
-    
-    
     @RequestMapping("/a")
+    @ResponseBody
     public ModelAndView index(){
-
         List<LearnResouce> learnList =new ArrayList<LearnResouce>();
         LearnResouce bean =new LearnResouce("官方参考文档","Spring Boot Reference Guide","http://docs.spring.io/spring-boot/docs/1.5.1.RELEASE/reference/htmlsingle/#getting-started-first-application");
         learnList.add(bean);
@@ -114,13 +100,8 @@ public class LearnController {
         //return modelAndView;
         return learnList;
     }
-    
-    
-    
-    
-    
 
-    /*@RequestMapping(value = "/queryLeanList",method = RequestMethod.POST,produces="application/json;charset=UTF-8")
+    @RequestMapping(value = "/queryLeanList",method = RequestMethod.POST,produces="application/json;charset=UTF-8")
     @ResponseBody
     public void queryLearnList(HttpServletRequest request , HttpServletResponse response){
         String page = request.getParameter("page"); // 取得当前页数,注意这是jqgrid自身的参数
@@ -137,7 +118,8 @@ public class LearnController {
         ServletUtil.createSuccessResponse(200, jo, response);
     }
     
-    *//**
+    /*
+    /**
      * 新添教程
      * @param request
      * @param response

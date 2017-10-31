@@ -23,13 +23,16 @@ public class SwaggerConfiguration {
 				.paths(PathSelectors.any())
 				.build();
 	}
-
+	/**
+	 * 简介里面显示的内容
+	 * @return
+	 */
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
 				.title("swagger-bootstrap-ui RESTful APIs")
 				.description("swagger-bootstrap-ui")
-				.termsOfServiceUrl("http://localhost:8080/")
-				.contact("developer@mail.com")
+				.termsOfServiceUrl("http://127.0.0.1:8080/")
+				.contact("su_zhenwei@yeah.net")
 				.version("1.0")
 				.build();
 	}

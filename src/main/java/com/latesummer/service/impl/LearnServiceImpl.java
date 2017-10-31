@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.latesummer.dao.LearnRepository;
-import com.latesummer.model.entity.LearnResouce;
+import com.latesummer.domain.entity.LearnResouce;
 import com.latesummer.service.ILearnService;
 
 import java.util.List;
