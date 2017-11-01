@@ -4,15 +4,13 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-
-import com.latesummer.base.BaseRepository;
-import com.latesummer.model.entity.User;
-
+import com.latesummer.common.dao.BaseDao;
+import com.latesummer.domain.entity.User;
 
 /**
  * Create By Jenvi Sue On 2017年9月20日
  */
-public interface UserRepository extends BaseRepository<User, Long> {
+public interface UserRepository extends BaseDao<User, Long> {
 
 	List<User> findByName(String name);
 
