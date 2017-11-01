@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="shortcut icon" href="/static/admin/images/favicon.png"/>
     <title>Tale - 博客安装</title>
-    <link href="/static/admin/plugins/jquery.steps/demo/css/jquery.steps.css" rel="stylesheet" type="text/css" />
+    <link th:href="@{/static/admin/plugins/jquery.steps/demo/css/jquery.steps.css}" href="/static/admin/plugins/jquery.steps/demo/css/jquery.steps.css" rel="stylesheet" type="text/css" />
     <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="/static/admin/css/style.min.css" rel="stylesheet" type="text/css" />
     <link href="//cdn.bootcss.com/limonte-sweetalert2/6.4.1/sweetalert2.min.css" rel="stylesheet" />
     <style>
         body,html {
-            background: url("/static/admin/images/bg/${random(5, '.png')}") no-repeat;
+            background: url("/static/admin/images/bg/5.png") no-repeat;
             background-size: cover;
         }
         .home-text {

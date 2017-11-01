@@ -29,9 +29,10 @@ public class MyWebMvcConfigurerAdapter extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         //自定义项目内目录
-        //registry.addResourceHandler("/my/**").addResourceLocations("classpath:/my/");
+    	//将所有/static/** 访问都映射到classpath:/static/ 目录下
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
         //指向外部目录
-        registry.addResourceHandler("/my/**").addResourceLocations("file:E:/my/");
+        //registry.addResourceHandler("/my/**").addResourceLocations("file:E:/my/");
         super.addResourceHandlers(registry);
     }
 
