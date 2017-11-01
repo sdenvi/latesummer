@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="shortcut icon" href="/static/admin/images/favicon.png"/>
     <title>Tale - 博客安装</title>
-    <link th:href="@{/static/admin/plugins/jquery.steps/demo/css/jquery.steps.css}" href="/static/admin/plugins/jquery.steps/demo/css/jquery.steps.css" rel="stylesheet" type="text/css" />
+    <link href="/static/admin/plugins/jquery.steps/demo/css/jquery.steps.css" rel="stylesheet" type="text/css" />
     <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="/static/admin/css/style.min.css" rel="stylesheet" type="text/css" />
     <link href="//cdn.bootcss.com/limonte-sweetalert2/6.4.1/sweetalert2.min.css" rel="stylesheet" />
@@ -56,19 +56,19 @@
             <div class="row">
                 <div class="col-sm-12 text-center">
                     <div class="home-wrapper">
-                        <h1 class="home-text"><span class="rotate">开始使用 Tale 写博客吧 :)</span></h1>
+                        <h1 class="home-text"><span class="rotate">开始使用Latesummer 写博客吧 :)</span></h1>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- #if(!is_install) -->
+    #if(!is_install)
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Tale安装向导</h3>
+                    <h3 class="panel-title">Latesummer安装向导</h3>
                 </div>
                 <div class="panel-body">
                     <form id="wizard-validation-form">
@@ -134,11 +134,11 @@
         </div> <!-- end col -->
 
     </div> <!-- End row -->
-   <!--  #else
-    你已经安装过Tale了，如需重新安装请提前做好备份，并删除根目录下的
+    #else
+   	 你已经安装过Tale了，如需重新安装请提前做好备份，并删除根目录下的
     <mark>install.lock</mark>
     文件。
-    #end -->
+    #end
 </div>
 
 <!-- Main  -->
