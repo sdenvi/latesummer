@@ -2,6 +2,7 @@ package com.latesummer.controller;
 
 
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.collect.Maps;
 import com.latesummer.domain.entity.LearnResouce;
 import com.latesummer.service.ILearnService;
 import com.latesummer.utils.ServletUtil;
@@ -25,6 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 教程页面
@@ -108,7 +110,14 @@ public class LearnController {
         String rows = request.getParameter("rows"); // 取得每页显示行数，,注意这是jqgrid自身的参数
         String author = request.getParameter("author");
         String title = request.getParameter("title");
+        
+        Map<String, Object> params = Maps.newHashMap();
         Sort sort = new Sort(Direction.ASC, "id");
+        //params.put("status", status);
+        params.put("author:like", author);
+        params.put("title:like", title);
+        Page<LearnResouce> rs = this.learnService.queryLearnResouceList(params, new PageRequest(page, rows, sort));
+        
         Pageable pageable = new PageRequest(Integer.valueOf(page), Integer.valueOf(rows), sort);
         Page<LearnResouce> learnList=learnService.queryLearnResouceList(pageable);
         JSONObject jo=new JSONObject();

@@ -51,8 +51,6 @@ public interface BaseService<T extends BaseModel<ID>, ID extends Serializable> {
 	/**
 	 * 多条件查询
 	 * 注：多个条件间是and关系 & 参数是属性对应的类型 使用时注意避免结果集过大
-	 * @author yangwk
-	 * @time 2017年8月1日 下午3:50:46
 	 * @param params {"username:like":"test"} 键的格式为字段名:过滤方式,过滤方式见{@code QueryTypeEnum}
 	 * @return
 	 */
@@ -61,8 +59,6 @@ public interface BaseService<T extends BaseModel<ID>, ID extends Serializable> {
 	/**
 	 * 分页多条件查询
 	 * 注：多个条件间是and关系 & 参数是属性对应的类型
-	 * @author yangwk
-	 * @time 2017年8月1日 下午3:50:46
 	 * @param params {"username:like":"test"} 键的格式为字段名:过滤方式,过滤方式见{@code QueryTypeEnum}
 	 * @param pageable 分页信息 new PageRequest(page, size,new Sort(Direction.DESC, "updateTime"))
 	 * @return
