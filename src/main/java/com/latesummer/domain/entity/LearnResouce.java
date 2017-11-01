@@ -18,7 +18,7 @@ import lombok.Data;
 @Table(name = "learn_resource")
 public class LearnResouce  implements BaseModel<Integer>{
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -91221104520172449L;
 	
 	@Id
 	@GeneratedValue
@@ -26,12 +26,6 @@ public class LearnResouce  implements BaseModel<Integer>{
 	private String author;
     private String title;
     private String url;
-    
-    public LearnResouce(String author, String title, String url) {
-        this.author = author;
-        this.title = title;
-        this.url = url;
-    }
     
     public Integer getId() {
 		return id;

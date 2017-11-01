@@ -1,29 +1,34 @@
 package com.latesummer.service.impl;
 
+import com.latesummer.common.dao.BaseDao;
+import com.latesummer.common.service.BaseServiceImpl;
+import com.latesummer.dao.LearnDao;
+import com.latesummer.domain.entity.LearnResouce;
+import com.latesummer.service.ILearnService;
+import com.latesummer.utils.StringUtil;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.core.Predicate;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.latesummer.dao.LearnDao;
-import com.latesummer.domain.entity.LearnResouce;
-import com.latesummer.service.ILearnService;
-import com.latesummer.utils.Constants;
-import com.latesummer.utils.StringUtil;
-
-import java.util.List;
-import java.util.Map;
 
 /**
  * Create By Jenvi Sue On 2017年10月25日
  */
 @Service
 @Transactional
-public class LearnServiceImpl implements ILearnService {
+public class LearnServiceImpl extends BaseServiceImpl<LearnResouce, Integer> implements ILearnService {
 
     @Autowired
     private LearnDao learnDao;
@@ -52,44 +57,34 @@ public class LearnServiceImpl implements ILearnService {
     }
 
     @Override
-    Page<LearnResouce> learnResouceListByPage(Map<String, Object> params, PageRequest pageRequest); {
-    	Specification<User> spec = new Specification<User>() {  
+	public Page<LearnResouce> learnResouceListByPage(final Map<String, String> params,Pageable pageable){
+    	Specification<LearnResouce> spec = new Specification<LearnResouce>() {  
 			@Override
-			public Predicate toPredicate(Root<User> root,CriteriaQuery<?> query,CriteriaBuilder cb) {
+			public Predicate toPredicate(Root<LearnResouce> root,CriteriaQuery<?> query,CriteriaBuilder cb) {
 				List<Predicate> list = new ArrayList<Predicate>();  
-				String type = params.get("type");
-				String status= params.get("status");
-				String username = params.get("username");
 				String name = params.get("name");
-				
-			    if(StringUtil.isNotBlank(type)){  
-			        list.add(cb.equal(root.get("type").as(Integer.class), NumberUtils.toInt(type)));  
-			    }  
-			    if(StringUtil.isNotBlank(status)){  
-			        list.add(cb.equal(root.get("status").as(Integer.class), NumberUtils.toInt(status)));  
+				String author= params.get("author");
+			    /*if(StringUtil.isNotBlank(type)){  
+			        list.add(cb.equal(root.get("type").as(Integer.class), NumberUtils.toInt(name)));  
+			    }*/  
+				if(StringUtil.isNotBlank(name)){  
+			        list.add(cb.equal(root.get("name"), name)); 
 			    }
-			    if(StringUtil.isNotBlank(username)){  
-			        list.add(cb.like(root.get("username").as(String.class), String.format("%%%s%%", username)));  
-			    }  
-			    if(StringUtil.isNotBlank(name)){  
-			    	list.add(cb.like(root.get("name").as(String.class), String.format("%%%s%%", name)));   
+			    if(StringUtil.isNotBlank(author)){  
+			        list.add(cb.equal(root.get("author"), author));  
 			    }
-			    list.add(cb.equal(root.get("del"), Constants.DEL_NO));
+			    //list.add(cb.equal(root.get("del"), Constants.DEL_NO));
 			    Predicate[] p = new Predicate[list.size()];  
 			    return cb.and(list.toArray(p));  
-				
-				//in条件查询
-				/*List<Integer> ids = Lists.newArrayList();
-				ids.add(1);
-				ids.add(2);
-				In<Integer> in = cb.in(root.get("id").as(Integer.class));
-				in.value(1);
-				in.value(2);
-			    return cb.or(in);*/
 			}  
 		};  
-		Page<User> page = userDao.findAll(spec, pageable);
+		Page<LearnResouce> page = learnDao.findAll(spec, pageable);
 		return page;
-        return learnDao.findAll(pageRequest);
     }
+
+	@Override
+	public BaseDao<LearnResouce, Integer> getDAO() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

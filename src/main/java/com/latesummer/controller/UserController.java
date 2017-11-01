@@ -21,7 +21,7 @@ public class UserController {
 	private IUserService userService;
 
 	@RequestMapping(value = "/add/{id}/{name}/{age}")
-	public User addUser(@PathVariable Long id, @PathVariable String name, @PathVariable Integer age) {
+	public User addUser(@PathVariable Integer id, @PathVariable String name, @PathVariable Integer age) {
 		User user = new User();
 		user.setId(id);
 		user.setName(name);
