@@ -106,7 +106,7 @@ public class LearnController {
 
     @RequestMapping(value = "/queryLeanList",method = RequestMethod.POST,produces="application/json;charset=UTF-8")
     @ResponseBody
-    public Page<LearnResouce> queryLearnList(HttpServletRequest request , HttpServletResponse response){
+    public void queryLearnList(HttpServletRequest request , HttpServletResponse response){
         String page = request.getParameter("page"); // 取得当前页数,注意这是jqgrid自身的参数
         String rows = request.getParameter("rows"); // 取得每页显示行数，,注意这是jqgrid自身的参数
         String author = request.getParameter("author");
@@ -120,7 +120,14 @@ public class LearnController {
         Sort sort = new Sort(Direction.ASC, "id");
         Pageable pageable = new PageRequest(NumberUtils.toInt(page, 1) - 1, NumberUtils.toInt(rows,10), sort);
         Page<LearnResouce> rs = this.learnService.learnResouceListByPage(params, pageable);
-        return rs;
+        
+        JSONObject jo=new JSONObject();
+        jo.put("rows", rs.getContent());
+        jo.put("total", rs.getTotalPages());//总页数
+        jo.put("records",rs.getTotalElements());//查询出的总记录数
+        ServletUtil.createSuccessResponse(200, jo, response);
+        
+        //return jo;
     }
     
     /*

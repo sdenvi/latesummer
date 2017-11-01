@@ -224,16 +224,12 @@ public class ServletUtil {
 	 * @param response
 	 */
 	public static String createSuccessResponse(Integer httpCode, Object result, HttpServletResponse response) {
-
 		return createSuccessResponse(httpCode, result, SerializerFeature.WriteMapNullValue, null, response);
-
 	}
 
 	public static String createSuccessResponse(Integer httpCode, String message, Object result,
 			HttpServletResponse response) {
-
 		return createSuccessResponse(httpCode, message, result, SerializerFeature.WriteMapNullValue, null, response);
-
 	}
 
 	/**
@@ -251,21 +247,16 @@ public class ServletUtil {
 		 * "Access-Control-Request-Headers"));
 		 */
 		return createSuccessResponse(httpCode, result, SerializerFeature.WriteMapNullValue, null, response);
-
 	}
 
 	public static String createSuccessResponse(Integer httpCode, Object result, SerializeFilter filter,
 			HttpServletResponse response) {
-
 		return createSuccessResponse(httpCode, result, SerializerFeature.PrettyFormat, filter, response);
-
 	}
 
 	public static String createSuccessResponse(Integer httpCode, Object result, SerializerFeature serializerFeature,
 			HttpServletResponse response) {
-
 		return createSuccessResponse(httpCode, result, serializerFeature, null, response);
-
 	}
 
 	public static String createSuccessResponse(Integer httpCode, Object result, SerializerFeature serializerFeature,
@@ -420,8 +411,7 @@ public class ServletUtil {
 	/**
 	 * 设置让浏览器弹出下载对话框的Header. 根据浏览器的不同设置不同的编码格式 防止中文乱码
 	 * 
-	 * @param fileName
-	 *            下载后的文件名.
+	 * @param fileName 下载后的文件名.
 	 */
 	public static void setFileDownloadHeader(HttpServletRequest request, HttpServletResponse response,
 			String fileName) {
