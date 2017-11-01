@@ -43,8 +43,7 @@ public class StringUtil {
     /** 
      * 将一个长整数转换位字节数组(8个字节)，b[0]存储高位字符，大端 
      *  
-     * @param l 
-     *            长整数 
+     * @param l  长整数 
      * @return 代表长整数的字节数组 
      */  
     public static byte[] longToBytes(long l) {  
