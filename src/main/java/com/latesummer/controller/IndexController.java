@@ -17,13 +17,8 @@ public class IndexController {
         return "main";
     }
 
-    @RequestMapping("/install")
-    public String install(){
-        return "install";
-    }
-    
     @RequestMapping("/index")
     public String index(){
-        return "admin/index";
+        return "index";
     }
 }
