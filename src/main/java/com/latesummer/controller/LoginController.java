@@ -20,7 +20,13 @@ import java.util.Map;
 public class LoginController {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    @RequestMapping("/login")
+    public String install(){
+        return "themes/default/index";
+    }
+    
+    
+    @RequestMapping(value = "/signIn",method = RequestMethod.POST)
     @ResponseBody
     public Map<String,Object> login(HttpServletRequest request, HttpServletResponse response){
         Map<String,Object> map =new HashMap<String,Object>();
