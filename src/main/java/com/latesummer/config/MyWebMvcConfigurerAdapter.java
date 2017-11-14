@@ -16,7 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by tengj on 2017/3/13.
+ * 
+ * Create By Jenvi Sue On 2017年11月14日
  */
 @Configuration
 public class MyWebMvcConfigurerAdapter extends WebMvcConfigurerAdapter {

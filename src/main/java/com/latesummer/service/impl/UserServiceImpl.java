@@ -9,8 +9,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.latesummer.dao.UserRepository;
-import com.latesummer.domain.entity.User;
+import com.latesummer.domain.User;
+import com.latesummer.domain.UserRepository;
 import com.latesummer.service.IUserService;
 
 @Service

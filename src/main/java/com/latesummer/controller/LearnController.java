@@ -3,7 +3,7 @@ package com.latesummer.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Maps;
-import com.latesummer.domain.entity.LearnResouce;
+import com.latesummer.domain.LearnResouce;
 import com.latesummer.service.ILearnService;
 import com.latesummer.utils.ServletUtil;
 

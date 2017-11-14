@@ -2,8 +2,8 @@ package com.latesummer.service.impl;
 
 import com.latesummer.common.dao.BaseDao;
 import com.latesummer.common.service.BaseServiceImpl;
-import com.latesummer.dao.LearnDao;
-import com.latesummer.domain.entity.LearnResouce;
+import com.latesummer.domain.LearnResouce;
+import com.latesummer.domain.LearnResouceRepository;
 import com.latesummer.service.ILearnService;
 import com.latesummer.utils.StringUtil;
 
@@ -31,29 +31,29 @@ import org.springframework.transaction.annotation.Transactional;
 public class LearnServiceImpl extends BaseServiceImpl<LearnResouce, Integer> implements ILearnService {
 
     @Autowired
-    private LearnDao learnDao;
+    private LearnResouceRepository learnResouceRepository;
     
     @Override
     public void add(LearnResouce learnResouce) {
-    	learnDao.save(learnResouce);
+    	learnResouceRepository.save(learnResouce);
     }
 
     @Override
     public void update(LearnResouce learnResouce) {
-    	learnDao.save(learnResouce);
+    	learnResouceRepository.save(learnResouce);
     }
 
     @Override
     public void deleteByIds(String[] ids) {
     	for (String id : ids) {
     		Long parseId = Long.valueOf(id);
-    		learnDao.delete(parseId);
+    		learnResouceRepository.delete(parseId);
 		}
     }
 
     @Override
     public LearnResouce queryLearnResouceById(Long id) {
-    	return learnDao.findOne(id);
+    	return learnResouceRepository.findOne(id);
     }
 
     @Override
@@ -78,7 +78,7 @@ public class LearnServiceImpl extends BaseServiceImpl<LearnResouce, Integer> imp
 			    return cb.and(list.toArray(p));  
 			}  
 		};  
-		Page<LearnResouce> page = learnDao.findAll(spec, pageable);
+		Page<LearnResouce> page = learnResouceRepository.findAll(spec, pageable);
 		return page;
     }
 

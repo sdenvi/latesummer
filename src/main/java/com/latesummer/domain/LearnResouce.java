@@ -1,4 +1,4 @@
-package com.latesummer.domain.entity;
+package com.latesummer.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,8 +6,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.latesummer.common.domain.BaseModel;
-
-import lombok.Data;
 
 /**
  * 

@@ -6,7 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import com.latesummer.common.service.BaseService;
-import com.latesummer.domain.entity.LearnResouce;
+import com.latesummer.domain.LearnResouce;
 
 /**
  * Create By Jenvi Sue On 2017年10月25日
