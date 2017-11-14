@@ -1,10 +1,10 @@
-package com.latesummer.controller;
+package com.latesummer.web.controller;
 
 
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Maps;
 import com.latesummer.domain.LearnResouce;
-import com.latesummer.service.ILearnService;
+import com.latesummer.service.LearnService;
 import com.latesummer.utils.ServletUtil;
 
 import io.swagger.annotations.ApiImplicitParam;
@@ -38,7 +38,7 @@ import java.util.Map;
 public class LearnController {
 	
     @Autowired
-    private ILearnService learnService;
+    private LearnService learnService;
     @RequestMapping("")
     public String learn(){
         return "learn-resource";

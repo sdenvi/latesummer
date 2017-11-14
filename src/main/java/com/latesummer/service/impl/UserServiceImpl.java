@@ -11,11 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.latesummer.domain.User;
 import com.latesummer.domain.UserRepository;
-import com.latesummer.service.IUserService;
+import com.latesummer.service.UserService;
 
 @Service
 @Transactional
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl implements UserService {
 
 	@Autowired
     private UserRepository userRepository;

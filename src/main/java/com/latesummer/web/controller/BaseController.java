@@ -1,4 +1,4 @@
-package com.latesummer.controller;
+package com.latesummer.web.controller;
 
 import com.latesummer.utils.MapCache;
 

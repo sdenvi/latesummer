@@ -1,4 +1,4 @@
-package com.latesummer.controller;
+package com.latesummer.web.controller;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.latesummer.domain.User;
-import com.latesummer.service.IUserService;
+import com.latesummer.service.UserService;
 
 @RestController
 @RequestMapping(value = "/users")
 public class UserController {
 	@Autowired
-	private IUserService userService;
+	private UserService userService;
 	
     // 创建线程安全的Map 
     static Map<Long, User> users = Collections.synchronizedMap(new HashMap<Long, User>()); 

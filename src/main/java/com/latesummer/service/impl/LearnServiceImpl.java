@@ -4,7 +4,7 @@ import com.latesummer.common.dao.BaseDao;
 import com.latesummer.common.service.BaseServiceImpl;
 import com.latesummer.domain.LearnResouce;
 import com.latesummer.domain.LearnResouceRepository;
-import com.latesummer.service.ILearnService;
+import com.latesummer.service.LearnService;
 import com.latesummer.utils.StringUtil;
 
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional
-public class LearnServiceImpl extends BaseServiceImpl<LearnResouce, Integer> implements ILearnService {
+public class LearnServiceImpl extends BaseServiceImpl<LearnResouce, Integer> implements LearnService {
 
     @Autowired
     private LearnResouceRepository learnResouceRepository;

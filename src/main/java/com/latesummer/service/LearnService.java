@@ -12,7 +12,7 @@ import com.latesummer.domain.LearnResouce;
  * Create By Jenvi Sue On 2017年10月25日
  */
 
-public interface ILearnService extends BaseService<LearnResouce, Integer> {
+public interface LearnService extends BaseService<LearnResouce, Integer> {
 	void add(LearnResouce learnResouce);
 
 	void update(LearnResouce learnResouce);

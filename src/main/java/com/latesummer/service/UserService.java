@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 
 import com.latesummer.domain.User;
 
-public interface IUserService {
+public interface UserService {
 	public Page<User> findAll(Pageable pageable);
 
 	public void saveUser(User book);

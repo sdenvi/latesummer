@@ -1,8 +1,7 @@
-package com.latesummer.controller;
+package com.latesummer.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 主页
