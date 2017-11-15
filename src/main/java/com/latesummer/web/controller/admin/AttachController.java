@@ -1,4 +1,4 @@
-package com.latesummer.controller.admin;
+package com.latesummer.web.controller.admin;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-import com.latesummer.controller.BaseController;
+import com.latesummer.web.controller.BaseController;
 
 /**
  * 附件管理

@@ -1,6 +1,9 @@
-package com.latesummer.controller;
+package com.latesummer.web.controller;
 
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -11,17 +14,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.latesummer.domain.entity.User;
-import com.latesummer.service.IUserService;
+import com.latesummer.domain.User;
+import com.latesummer.service.UserService;
 
 @RestController
 @RequestMapping(value = "/users")
 public class UserController {
 	@Autowired
-	private IUserService userService;
+	private UserService userService;
+	
+    // 创建线程安全的Map 
+    static Map<Long, User> users = Collections.synchronizedMap(new HashMap<Long, User>()); 
 
 	@RequestMapping(value = "/add/{id}/{name}/{age}")
-	public User addUser(@PathVariable Integer id, @PathVariable String name, @PathVariable Integer age) {
+	public User addUser(@PathVariable Long id, @PathVariable String name, @PathVariable Integer age) {
 		User user = new User();
 		user.setId(id);
 		user.setName(name);

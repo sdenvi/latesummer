@@ -1,19 +1,23 @@
-package com.latesummer.interceptor;
+package com.latesummer.aop;
 
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.latesummer.domain.entity.User;
+import com.latesummer.domain.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 
 /**
- * Created by tengj on 2017/3/29.
+ * Create By Jenvi Sue On 2017年11月14日
  */
 public class MyInterceptor implements HandlerInterceptor {
+	
+	/**
+	 * 在请求处理之前进行调用（Controller方法调用之前），只有返回true才会继续向下执行，返回false取消当前请求
+	 */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         boolean flag =true;
@@ -34,6 +38,9 @@ public class MyInterceptor implements HandlerInterceptor {
         return flag;
     }
 
+    /**
+     * 请求处理之后进行调用，但是在视图被渲染之前（Controller方法调用之后）
+     */
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         HandlerMethod handlerMethod = (HandlerMethod) handler;
@@ -51,6 +58,9 @@ public class MyInterceptor implements HandlerInterceptor {
         }
     }
 
+    /**
+     * 在整个请求结束之后被调用，也就是在DispatcherServlet 渲染了对应的视图之后执行（主要是用于进行资源清理工作）
+     */
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
 

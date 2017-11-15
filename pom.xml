@@ -31,12 +31,11 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 		
-		<!-- 模板引擎 -->
-        <dependency>
-            <groupId>com.bladejava</groupId>
-            <artifactId>blade-template-jetbrick</artifactId>
-            <version>${blade-tpl.verion}</version>
-        </dependency>
+		<!-- 邮件服务依赖 -->
+		<dependency> 
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-mail</artifactId>
+		</dependency> 
 		
 		<!-- optional=true,依赖不会传递，该项目依赖devtools；之后依赖myboot项目的项目如果想要使用devtools，需要重新引入 -->
 		<dependency>  

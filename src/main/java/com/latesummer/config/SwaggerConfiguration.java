@@ -19,7 +19,7 @@ public class SwaggerConfiguration {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.apiInfo(apiInfo())
 				.select()
-				.apis(RequestHandlerSelectors.basePackage("com.latesummer.controller"))
+				.apis(RequestHandlerSelectors.basePackage("com.latesummer.web.controller"))
 				.paths(PathSelectors.any())
 				.build();
 	}

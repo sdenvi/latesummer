@@ -1,4 +1,4 @@
-package com.latesummer.domain.entity;
+package com.latesummer.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,8 +7,6 @@ import javax.persistence.Table;
 
 import com.latesummer.common.domain.BaseModel;
 
-import lombok.Data;
-
 /**
  * 
  * @author Jenvi Sue
@@ -16,22 +14,22 @@ import lombok.Data;
  */
 @Entity
 @Table(name = "learn_resource")
-public class LearnResouce  implements BaseModel<Integer>{
+public class LearnResouce implements BaseModel<Long>{
 
 	private static final long serialVersionUID = -91221104520172449L;
 	
 	@Id
 	@GeneratedValue
-    private Integer id;
+    private Long id;
 	private String author;
     private String title;
     private String url;
     
-    public Integer getId() {
+    public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
