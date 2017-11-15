@@ -27,7 +27,7 @@ public final class PathUtil {
 	public static List<String> convertRouteToList(String route) {
 		String[] pathArray = route.split("/");
 		if ((null != pathArray) && (pathArray.length > 0)) {
-			List path = new ArrayList();
+			List<String> path = new ArrayList<String>();
 			for (String p : pathArray) {
 				if (p.length() > 0) {
 					path.add(p);
@@ -35,7 +35,7 @@ public final class PathUtil {
 			}
 			return path;
 		}
-		return new ArrayList(0);
+		return new ArrayList<String>(0);
 	}
 
 	public static boolean isParam(String routePart) {

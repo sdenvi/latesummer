@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.DigestInputStream;
-import java.security.GeneralSecurityException;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -20,11 +19,11 @@ public class EncryptUtil {
 			'F' };
 
 	public static String DES_Transformation = "DES/ECB/NoPadding";
-	private static final String DES_Algorithm = "DES";
+	//static final String DES_Algorithm = "DES";
 	public static String TripleDES_Transformation = "DESede/ECB/NoPadding";
-	private static final String TripleDES_Algorithm = "DESede";
+	//private static final String TripleDES_Algorithm = "DESede";
 	public static String AES_Transformation = "AES/ECB/NoPadding";
-	private static final String AES_Algorithm = "AES";
+	//private static final String AES_Algorithm = "AES";
 
 	public static String md5(String data) {
 		return md5(data.getBytes());
