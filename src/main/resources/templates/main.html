@@ -28,11 +28,6 @@
                 alwaysVisible : true
             });
 
-
-
-
-
-
             //单击快捷方式
             $("#fastMenuDiv").on("click","a.menu",function(){
                 var url=$(this).attr("id");
@@ -60,28 +55,23 @@
                     <div class="widget-main">
                         <div>
                             <div class="row">
-                                <div class="col-xs-1">
+                                <div class="col-xs-1" style="width: 11% !important;">
                                     <img class="editable img-responsive editable-click editable-empty" style="border:0;" width="120" height="120" id="avatar" alt="Alex's Avatar" th:src="@{/assets/images/dudu.jpg}" />
                                 </div>
                                 <div class="col-xs-7">
                                     <h3>您好，欢迎登录Spring Boot管理系统。</h3>
                                     <div class="row">
-                                        <div class="col-xs-3 col-md-2">
-                                            <h4>博主：<span id="relName">嘟嘟MD</span></h4>
-                                        </div>
-                                        <div class="col-xs-4 col-md-10">
+                                        <div class="col-xs-4 col-md-12">
                                             <h4>当前框架：基于bootstrap3的ACE模板改造</h4>
-                                            <h4>SpringBoot干货群（427480430），大把学习电子书等着你</h4>
-                                            <h4>扫扫博主公众号，获取博主最新博客通知</h4>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xs-2" style="text-align: right;">
+                                <!-- <div class="col-xs-2" style="text-align: right;">
                                     <img th:src="@{/assets/images/qq.png}"   width="150" height="150"/>
                                 </div>
                                 <div class="col-xs-2">
                                     <img th:src="@{/assets/images/gongzhon.png}"  width="220"/>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
