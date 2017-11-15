@@ -3,8 +3,6 @@ package com.latesummer.config;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-import com.latesummer.aop.MyInterceptor;
-import com.latesummer.aop.MyInterceptor2;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;

@@ -24,6 +24,8 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 @Controller
 @RequestMapping(value = "")
 public class FileUploadController {
+	
+	public static final String CLASSPATH = new File(FileUploadController.class.getResource("/").getPath()).getPath() + File.separatorChar;
 
 	@RequestMapping(value = "/upload", method = RequestMethod.GET)
 	public String upload() {
