@@ -13,38 +13,18 @@ import lombok.Data;
 /**
  * @author Jenvi Sue
  */
-
+@Data
 @Entity
 @Table(name = "user")
-public class User implements BaseModel<Integer> {
+public class User implements BaseModel<Long> {
 
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue
-	private Integer id;
+	private Long id;
 	@Column(nullable = false)
 	private String name;
 	@Column(nullable = false, unique = true)
 	private Integer age;
-	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public Integer getAge() {
-		return age;
-	}
-	public void setAge(Integer age) {
-		this.age = age;
-	}
-	
 }

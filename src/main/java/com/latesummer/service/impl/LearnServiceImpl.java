@@ -28,7 +28,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional
-public class LearnServiceImpl extends BaseServiceImpl<LearnResouce, Integer> implements LearnService {
+public class LearnServiceImpl extends BaseServiceImpl<LearnResouce, Long> implements LearnService {
 
     @Autowired
     private LearnResouceRepository learnResouceRepository;
@@ -83,7 +83,7 @@ public class LearnServiceImpl extends BaseServiceImpl<LearnResouce, Integer> imp
     }
 
 	@Override
-	public BaseDao<LearnResouce, Integer> getDAO() {
+	public BaseDao<LearnResouce, Long> getDAO() {
 		// TODO Auto-generated method stub
 		return null;
 	}

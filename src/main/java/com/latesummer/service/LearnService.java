@@ -12,14 +12,14 @@ import com.latesummer.domain.LearnResouce;
  * Create By Jenvi Sue On 2017年10月25日
  */
 
-public interface LearnService extends BaseService<LearnResouce, Integer> {
+public interface LearnService extends BaseService<LearnResouce, Long> {
 	void add(LearnResouce learnResouce);
 
 	void update(LearnResouce learnResouce);
 
 	void deleteByIds(String[] ids);
 
-	LearnResouce queryLearnResouceById(Long learnResouce);
+	LearnResouce queryLearnResouceById(Long id);
 
 	Page<LearnResouce> learnResouceListByPage(Map<String, String> params, Pageable pageable);
 }

@@ -1,5 +1,5 @@
 /**
- * Created by tengj on 2017/4/10.
+ * Created by sdenvi on 2017/11/10.
  */
 var grid_selector = "#jqGrid";
 var pager_selector = "#jqGridPager";
