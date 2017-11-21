@@ -11,7 +11,7 @@ import com.latesummer.common.domain.BaseModel;
 import lombok.Data;
 
 /**
- * @author Jenvi Sue
+ * Create By Jenvi Sue On 2017年11月21日
  */
 @Data
 @Entity

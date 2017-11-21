@@ -8,9 +8,7 @@ import javax.persistence.Table;
 import com.latesummer.common.domain.BaseModel;
 
 /**
- * 
- * @author Jenvi Sue
- *
+ * Create By Jenvi Sue On 2017年11月21日
  */
 @Entity
 @Table(name = "learn_resource")
