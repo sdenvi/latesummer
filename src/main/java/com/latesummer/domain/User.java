@@ -8,12 +8,9 @@ import javax.persistence.Table;
 
 import com.latesummer.common.domain.BaseModel;
 
-import lombok.Data;
-
 /**
  * Create By Jenvi Sue On 2017年11月21日
  */
-@Data
 @Entity
 @Table(name = "user")
 public class User implements BaseModel<Long> {
@@ -27,4 +24,33 @@ public class User implements BaseModel<Long> {
 	private String name;
 	@Column(nullable = false, unique = true)
 	private Integer age;
+
+	public static long getSerialVersionUID() {
+		return serialVersionUID;
+	}
+
+	@Override
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Integer getAge() {
+		return age;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
 }
