@@ -25,10 +25,6 @@ public class User implements BaseModel<Long> {
 	@Column(nullable = false, unique = true)
 	private Integer age;
 
-	public static long getSerialVersionUID() {
-		return serialVersionUID;
-	}
-
 	@Override
 	public Long getId() {
 		return id;
