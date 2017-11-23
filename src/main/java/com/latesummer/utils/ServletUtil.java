@@ -24,6 +24,7 @@ import java.util.regex.Pattern;
 public class ServletUtil {
 
 	// 服务器标识
+	@SuppressWarnings("unused")
 	private static String hostName = "";
 
 	// 响应的ContentType内容
@@ -122,17 +123,6 @@ public class ServletUtil {
 		final String code = "NOT_FOUND";
 		String message = "请求的URL路径不存在!";
 		return createErrorResponse(404, 404, code, message, response);
-	}
-
-	/**
-	 * 生成错误报文
-	 * 
-	 * @param errorCode
-	 * @param response
-	 */
-	public static String createErrorResponse(ErrorCode errorCode, HttpServletResponse response) {
-		return createErrorResponse(errorCode.getHttpStatus(), errorCode.getRes_code(), errorCode.getCode(),
-				errorCode.getMessage(), response);
 	}
 
 	/**

@@ -51,8 +51,6 @@ public class ValidatorUtil {
 	 * 判断密码格式是否正确(只能是数组或者字母，并存长度为[6,12])
 	 * @param passwd
 	 * @return
-	 * @author wyongjian
-	 * @date 2014-11-18
 	 */
 	public static boolean isPasswd(String passwd){
 		if(StringUtils.isBlank(passwd))return false;
@@ -78,8 +76,6 @@ public class ValidatorUtil {
 	 * 判断是否是MAC地址
 	 * @param mac
 	 * @return
-	 * @author wyongjian
-	 * @date 2014-11-26
 	 */
 	public static boolean isMac(String mac){
 		if(StringUtils.isNotBlank(mac)){
