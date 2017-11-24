@@ -32,11 +32,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
-* Created by IntelliJ IDEA.
-* @Author Jenvi Sue
-* @Date 2017/11/25 0:56
-* @Description 教程页面
-*/
+ * 教程页面
+ *
+ * @Author Jenvi Sue
+ * @Date 2017/11/25 1:07
+ */
 @Controller
 @RequestMapping("/learn")
 public class LearnController {
@@ -218,15 +218,6 @@ public class LearnController {
 		if (!StringUtil.isNull(url)) {
 			learnResouce.setUrl(url);
 		}
-		/*if (StringUtil.isNotBlank(author)) {
-			learnResouce.setAuthor(author);
-		} else {
-			HttpSession session = request.getSession();
-			SessionUser sessioUser = (SessionUser) session.getAttribute(SessionConstant.USER);
-			if (sessioUser != null) {
-				address.setUserId(sessioUser.getUserId());
-			}
-		}*/
 		return learnResouce;
 	}
 }
