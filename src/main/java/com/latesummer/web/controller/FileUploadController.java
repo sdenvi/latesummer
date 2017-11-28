@@ -10,6 +10,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,14 +43,21 @@ public class FileUploadController {
 	 * @param file
 	 * @return
 	 */
-	@RequestMapping(value = "/upload", method = RequestMethod.POST)
+	@PostMapping(value = "/upload")
 	@ResponseBody
-	public String upload(@RequestParam("file") MultipartFile file) {
+	public String upload(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
 		if (!file.isEmpty()) {
+			// 这里只是简单例子，文件直接输出到项目路径下。
+			// 实际项目中，文件需要输出到指定位置，需要在增加代码处理。
+			// 还有关于文件格式限制、文件大小限制，详见：中配置。
+			String contentType = file.getContentType();
+	        String fileName = file.getOriginalFilename();
+	        /*System.out.println("fileName-->" + fileName);
+	        System.out.println("getContentType-->" + contentType);*/
+	        String filePath = request.getSession().getServletContext().getRealPath("imgupload/");
 			try {
-				// 这里只是简单例子，文件直接输出到项目路径下。
-				// 实际项目中，文件需要输出到指定位置，需要在增加代码处理。
-				// 还有关于文件格式限制、文件大小限制，详见：中配置。
+				//FileUtil.uploadFile(file.getBytes(), filePath, fileName);
+				
 				BufferedOutputStream out = new BufferedOutputStream(
 						new FileOutputStream(new File(file.getOriginalFilename())));
 				out.write(file.getBytes());
