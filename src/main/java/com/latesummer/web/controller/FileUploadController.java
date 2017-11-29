@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.latesummer.utils.FileUtil;
+
 /**
  * 文件上传的Controller 
  * Create By Jenvi Sue On 2017年11月14日
@@ -51,32 +53,33 @@ public class FileUploadController {
 	@ResponseBody
 	public String upload(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
 		if (!file.isEmpty()) {
-			// 这里只是简单例子，文件直接输出到项目路径下。
-			// 实际项目中，文件需要输出到指定位置，需要在增加代码处理。
-			// 还有关于文件格式限制、文件大小限制，详见：中配置。
 			String contentType = file.getContentType();
 	        String fileName = file.getOriginalFilename();
-	        /*System.out.println("fileName-->" + fileName);
-	        System.out.println("getContentType-->" + contentType);*/
-	        String filePath = request.getSession().getServletContext().getRealPath("imgupload/");
+	        //获取的的tamcat的路径，部署项目后相当于项目的路径
+	        //String filePath = request.getSession().getServletContext().getRealPath("upload/");
+	        //上传到工程根目录下的upload文件夹
+	        String filePath = "upload/";
+	        
+	        /**
+	        System.out.println("fileName-->" + fileName);
+	        System.out.println("getContentType-->" + contentType);
+	        */
+	        
 			try {
-				//FileUtil.uploadFile(file.getBytes(), filePath, fileName);
-				
-				BufferedOutputStream out = new BufferedOutputStream(
-						new FileOutputStream(new File(file.getOriginalFilename())));
-				out.write(file.getBytes());
-				out.flush();
-				out.close();
+				FileUtil.uploadFile(file.getBytes(), filePath, fileName);
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
-				return "上传失败," + e.getMessage();
+				return "You failed to upload  => " + e.getMessage();
 			} catch (IOException e) {
 				e.printStackTrace();
-				return "上传失败," + e.getMessage();
+				return "You failed to upload  => " + e.getMessage();
+			} catch (Exception e) {
+				e.printStackTrace();
+				return "You failed to upload  => " + e.getMessage();
 			}
-			return "上传成功";
+			return "upload successful";
 		} else {
-			return "上传失败，因为文件是空的.";
+			return "You failed to upload because the file was empty.";
 		}
 	}
 
@@ -85,7 +88,7 @@ public class FileUploadController {
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping(value = "/upload/batch", method = RequestMethod.POST)
+	@PostMapping(value = "/upload/batch")
 	public @ResponseBody String batchUpload(HttpServletRequest request) {
 		List<MultipartFile> files = ((MultipartHttpServletRequest) request).getFiles("file");
 		MultipartFile file = null;
