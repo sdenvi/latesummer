@@ -33,21 +33,21 @@ public class Application {
 		dataSource.setPassword(env.getProperty("spring.datasource.password"));
 		dataSource.setDriverClassName(env.getProperty("spring.datasource.driver-class-name"));
 		//初始化时建立物理连接的个数
-		dataSource.setInitialSize(Integer.valueOf(env.getProperty("spring.datasource.initial-size")));
+		dataSource.setInitialSize(2);
 		//最大连接池数量
-		dataSource.setMaxActive(Integer.valueOf(env.getProperty("spring.datasource.initial-size")));
+		dataSource.setMaxActive(20);
 		//最小连接池数量
-		dataSource.setMinIdle(Integer.valueOf(env.getProperty("spring.datasource.min-idle")));
+		dataSource.setMinIdle(0);
 		//获取连接时最大等待时间，单位毫秒。
-		dataSource.setMaxWait(Integer.valueOf(env.getProperty("spring.datasource.max-wait")));
+		dataSource.setMaxWait(60000);
 		//用来检测连接是否有效的sql
-		dataSource.setValidationQuery(env.getProperty("spring.datasource.validation-query"));
+		dataSource.setValidationQuery("SELECT 1");
 		//申请连接时执行validationQuery检测连接是否有效
-		dataSource.setTestOnBorrow(Boolean.valueOf(env.getProperty("spring.datasource.test-on-borrow")));
+		dataSource.setTestOnBorrow(false);
 		//建议配置为true，不影响性能，并且保证安全性。
-		dataSource.setTestWhileIdle(Boolean.valueOf(env.getProperty("spring.datasource.test-while-idle")));
+		dataSource.setTestWhileIdle(true);
 		//是否缓存preparedStatement，也就是PSCache
-		dataSource.setPoolPreparedStatements(Boolean.valueOf(env.getProperty("spring.datasource.pool-prepared-statements")));
+		dataSource.setPoolPreparedStatements(false);
 		return dataSource;
 	}
 }
