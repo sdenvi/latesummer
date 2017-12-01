@@ -150,7 +150,7 @@ public final class ConvertUtil {
 			}
 			return os;
 		} catch (IOException e) {
-			byte[] b;
+			//byte[] b;
 			e.printStackTrace();
 			return null;
 		} finally {

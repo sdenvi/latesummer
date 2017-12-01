@@ -338,6 +338,28 @@ public class ServletUtil {
 		}
 		return ipAddress;
 	}
+	
+	/**
+	 * IP 地址转换成 long 数据
+	 * @param ipAddress
+	 * @return
+	 */
+	public static long ipAddressToLong(String ipAddress) {
+		long ipInt = 0;
+		if (ValidatorUtil.isIPv4Address(ipAddress)) {
+			String[] ipArr = ipAddress.split("\\.");
+			if (ipArr.length == 3) {
+				ipAddress = ipAddress + ".0";
+			}
+			ipArr = ipAddress.split("\\.");
+			long p1 = Long.parseLong(ipArr[0]) * 256 * 256 * 256;
+			long p2 = Long.parseLong(ipArr[1]) * 256 * 256;
+			long p3 = Long.parseLong(ipArr[2]) * 256;
+			long p4 = Long.parseLong(ipArr[3]);
+			ipInt = p1 + p2 + p3 + p4;
+		}
+		return ipInt;
+	}
 
 	/**
 	 * 获取带参数的URL串

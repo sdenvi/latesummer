@@ -110,6 +110,12 @@
 		  <artifactId>swagger-bootstrap-ui</artifactId>
 		  <version>1.6</version>
 		</dependency>
+		
+	    <dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.14</version>
+		</dependency>  
         
 		<!-- maven添加本地jar -->
 		<!-- 
