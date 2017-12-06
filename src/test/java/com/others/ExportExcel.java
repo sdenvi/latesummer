@@ -25,6 +25,7 @@ public class ExportExcel {
 	 * 4：一行一行的输出
 	 * @param filePath
 	 */
+	@SuppressWarnings("unused")
 	public static void readTxtFile(String filePath) {
 		HSSFWorkbook workbook = new HSSFWorkbook();
 		HSSFSheet sheet = workbook.createSheet("统计表");
