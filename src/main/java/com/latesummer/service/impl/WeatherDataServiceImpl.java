@@ -12,7 +12,7 @@ import com.latesummer.domain.WeatherResponse;
 import com.latesummer.service.WeatherDataService;
 
 /**
- * 天气数据服务.
+ * 天气数据服务
  */
 @Service
 public class WeatherDataServiceImpl implements WeatherDataService {
@@ -35,10 +35,10 @@ public class WeatherDataServiceImpl implements WeatherDataService {
 		return this.doGetWeatherData(uri);
 	}
 
-	private WeatherResponse doGetWeatherData(String uri) {
+	private WeatherResponse doGetWeatherData(String uri){
 		ResponseEntity<String> response = restTemplate.getForEntity(uri, String.class);
 		String strBody = null;
-
+		
 		if (response.getStatusCodeValue() == 200) {
 			strBody = response.getBody();
 		}
