@@ -22,7 +22,7 @@ public class MailTests extends BasicUtClass{
 	
 	@Test
 	public void sendAttachmentsMail() {
-		mailService.sendAttachmentsMail(to, "主题：这是一封带附件的邮件", "有附件，请查收！", "C:\\Users\\0200283\\Desktop\\SearchTableruleRQ.xsd");
+		mailService.sendAttachmentsMail(to, "主题：这是一封带附件的邮件", "有附件，请查收！", "C:\\Users\\0200283\\Desktop\\1.txt");
 	}
 	
 	@Test
