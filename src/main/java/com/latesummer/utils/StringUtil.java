@@ -7,12 +7,18 @@ import java.util.regex.Pattern;
 import org.apache.log4j.Logger;
 
 /**
- * 字符串处理工具类 Create By Jenvi Sue On 2017年9月21日
+ * 字符串处理工具类
+ * @Author Jenvi Sue
+ * @Date 2017/09/11 15:18
  */
 public class StringUtil extends org.apache.commons.lang3.StringUtils{
 
 	public static Logger logger = Logger.getLogger(StringUtil.class);
 	private static final String CHARSET_NAME = "UTF-8";
+	private static final String NULL = "null";
+	private static final int KEY_PRE = '.';
+	private static final Pattern NUMBER_PATTERN = Pattern.compile("[+-]?[0-9]+[0-9]*(\\.[0-9]+)?");
+	private static final Pattern BLANK_PATTERN = Pattern.compile("\\s*|\t|\r|\n");
 
 	/**
 	 * 判断字符串是否为null、“ ”、“null”
@@ -23,9 +29,9 @@ public class StringUtil extends org.apache.commons.lang3.StringUtils{
 	public static boolean isNull(String obj) {
 		if (obj == null) {
 			return true;
-		} else if (obj.toString().trim().equals("")) {
+		} else if ("".equals(obj.toString().trim())) {
 			return true;
-		} else if (obj.toString().trim().toLowerCase().equals("null")) {
+		} else if (NULL.equals(obj.toString().trim().toLowerCase())) {
 			return true;
 		}
 
@@ -39,8 +45,8 @@ public class StringUtil extends org.apache.commons.lang3.StringUtils{
 	 * @return
 	 */
 	public static boolean isNumber(String str) {
-		Pattern pattern = Pattern.compile("[+-]?[0-9]+[0-9]*(\\.[0-9]+)?");
-		Matcher match = pattern.matcher(str);
+        Pattern pattern = NUMBER_PATTERN;
+        Matcher match = pattern.matcher(str);
 
 		return match.matches();
 	}
@@ -175,7 +181,7 @@ public class StringUtil extends org.apache.commons.lang3.StringUtils{
 	public static String replaceBlank(String str) {
 		String dest = "";
 		if (str != null) {
-			Pattern p = Pattern.compile("\\s*|\t|\r|\n");
+            Pattern p = BLANK_PATTERN;
 			Matcher m = p.matcher(str);
 			dest = m.replaceAll("");
 		}
@@ -186,7 +192,7 @@ public class StringUtil extends org.apache.commons.lang3.StringUtils{
 	 * 过滤特殊字符
 	 */
 	@SuppressWarnings("unused")
-	public static String StringFilter(String str) {
+	public static String stringFilter(String str) {
 		// 清除掉所有特殊字符
 		String regEx = "[`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（） _——+|{}【】‘；：”“’。，、？]";
 		Pattern p = Pattern.compile(regEx);
@@ -200,7 +206,7 @@ public class StringUtil extends org.apache.commons.lang3.StringUtils{
 	 * 改变格式
 	 */
 	public static String changStr(String str) {
-		if (str == null || str.equals("") || str.length() <= 0) {
+		if (str == null || "".equals(str) || str.length() <= 0) {
 			return "";
 		}
 		str = str.replaceAll("\"", " ");
@@ -280,10 +286,10 @@ public class StringUtil extends org.apache.commons.lang3.StringUtils{
 	 * @return
 	 */
 	public static String fileExt(String fname) {
-		if ((isBlank(fname)) || (fname.indexOf('.') == -1)) {
+		if ((isBlank(fname)) || (fname.indexOf(KEY_PRE) == -1)) {
 			return null;
 		}
-		return fname.substring(fname.lastIndexOf('.') + 1);
+		return fname.substring(fname.lastIndexOf(KEY_PRE) + 1);
 	}
 
 	/**
@@ -306,31 +312,37 @@ public class StringUtil extends org.apache.commons.lang3.StringUtils{
 	}
 
 	public static String alignRight(Object o, int width, char c) {
-		if (null == o)
+		if (null == o){
 			return null;
+        }
 		String s = o.toString();
 		int len = s.length();
-		if (len >= width)
+		if (len >= width){
 			return s;
+        }
 		return new StringBuilder().append(dup(c, width - len)).append(s).toString();
 	}
 
 	public static String alignLeft(Object o, int width, char c) {
-		if (null == o)
+		if (null == o){
 			return null;
+        }
 		String s = o.toString();
 		int length = s.length();
-		if (length >= width)
+		if (length >= width){
 			return s;
+        }
 		return new StringBuilder().append(s).append(dup(c, width - length)).toString();
 	}
 
 	public static String dup(char c, int num) {
-		if ((c == 0) || (num < 1))
+		if ((c == 0) || (num < 1)){
 			return "";
+        }
 		StringBuilder sb = new StringBuilder(num);
-		for (int i = 0; i < num; i++)
+		for (int i = 0; i < num; i++){
 			sb.append(c);
+        }
 		return sb.toString();
 	}
 }
