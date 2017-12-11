@@ -48,7 +48,7 @@ public class WeatherDataServiceImpl implements WeatherDataService {
 	 * @param uri
 	 * @return
 	 */
-	private WeatherResponse doGetWeatherData(String uri){
+	/*private WeatherResponse doGetWeatherData(String uri){
 		boolean isExists = redisUtil.exists(WEATHER_CACHE_NAME);
 		String strBody = null;
 		if (isExists) {
@@ -71,9 +71,9 @@ public class WeatherDataServiceImpl implements WeatherDataService {
 		}
 
 		return weather;
-	}
+	}*/
 
-	/*private WeatherResponse doGetWeatherData1(String uri){
+	private WeatherResponse doGetWeatherData(String uri){
 		ResponseEntity<String> response = restTemplate.getForEntity(uri, String.class);
 		String strBody = null;
 		
@@ -91,6 +91,6 @@ public class WeatherDataServiceImpl implements WeatherDataService {
 		}
 
 		return weather;
-	}*/
+	}
 
 }
