@@ -17,7 +17,8 @@ import javax.mail.internet.MimeMessage;
 import java.io.File;
 
 /**
- * Create By Jenvi Sue On 2017年11月14日
+ * @Author Jenvi Sue
+ * @Date 2017/12/11 14:22
  */
 @Component
 public class MailServiceImpl implements MailService{
@@ -86,6 +87,7 @@ public class MailServiceImpl implements MailService{
      * @param content
      * @param filePath
      */
+    @Override
     public void sendAttachmentsMail(String to, String subject, String content, String filePath){
         MimeMessage message = mailSender.createMimeMessage();
 
@@ -99,7 +101,6 @@ public class MailServiceImpl implements MailService{
             FileSystemResource file = new FileSystemResource(new File(filePath));
             String fileName = filePath.substring(filePath.lastIndexOf(File.separator));
             helper.addAttachment(fileName, file);
-            //helper.addAttachment("test"+fileName, file);
 
             mailSender.send(message);
             logger.info("带附件的邮件已经发送。");
@@ -117,6 +118,7 @@ public class MailServiceImpl implements MailService{
      * @param rscPath
      * @param rscId
      */
+    @Override
     public void sendInlineResourceMail(String to, String subject, String content, String rscPath, String rscId){
         MimeMessage message = mailSender.createMimeMessage();
 

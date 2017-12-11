@@ -16,6 +16,8 @@ import io.swagger.annotations.ApiOperation;
 
 /**
  * 获取天气信息
+ * @Author Jenvi Sue
+ * @Date 2017/12/11 14:25
  */
 @RestController
 @RequestMapping("/weather")	

@@ -24,10 +24,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Create By Jenvi Sue On 2017年10月25日
+ * @Author Jenvi Sue
+ * @Date 2017/12/11 14:20
  */
 @Service
-@Transactional
+@Transactional(rollbackFor = Exception.class)
 public class LearnServiceImpl extends BaseServiceImpl<LearnResouce, Long> implements LearnService {
 
     @Autowired
@@ -73,8 +74,8 @@ public class LearnServiceImpl extends BaseServiceImpl<LearnResouce, Long> implem
 			    if(StringUtil.isNotBlank(author)){  
 			        list.add(cb.equal(root.get("author"), author));  
 			    }
-			    //list.add(cb.equal(root.get("del"), Constants.DEL_NO));
-			    Predicate[] p = new Predicate[list.size()];  
+			    /*list.add(cb.equal(root.get("del"), Constants.DEL_NO));*/
+			    Predicate[] p = new Predicate[list.size()];
 			    return cb.and(list.toArray(p));  
 			}  
 		};  

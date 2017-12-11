@@ -13,7 +13,10 @@ import com.latesummer.service.WeatherDataService;
 import com.latesummer.utils.RedisUtil;
 
 /**
+ *
  * 天气数据服务
+ * @Author Jenvi Sue
+ * @Date 2017/12/11 14:16
  */
 @Service
 public class WeatherDataServiceImpl implements WeatherDataService {
