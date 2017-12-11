@@ -20,17 +20,17 @@ public class LambdaTest {
         List<String> features = Arrays.asList("Lambdas", "Default Method", "Stream API", "Date and Time API");
 
         // Java 8之前：
-       /* for (String feature : features) {
+        for (String feature : features) {
             System.out.println(feature);
-        }*/
+        }
 
         // Java 8之后：
-        // features.forEach(n -> System.out.println(n));
+        features.forEach(n -> System.out.println(n));
 
         // 使用Java 8的方法引用更方便，方法引用由::双冒号操作符标示，对参数没有修改时可以使用
-        // features.forEach(System.out::println);
+        features.forEach(System.out::println);
         // 事实上，可以省略这里的lambda参数的类型声明，编译器可以从列表的类属性推测出来
-        // features.forEach((String s) -> System.out.println("*" + s + "*"));
+        features.forEach((String s) -> System.out.println("*" + s + "*"));
 
         // 将字符串换成大写并用逗号链接起来
         List<String> G7 = Arrays.asList("USA", "Japan", "France", "Germany", "Italy", "U.K.", "Canada");
