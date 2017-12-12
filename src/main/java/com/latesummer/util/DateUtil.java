@@ -11,12 +11,9 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * 项目名称：账号安全中心(all)   
- * 类名称：DateUtil   
- * 类描述：   时间操作工具
- * 创建人：Jenvi Sue   
- * 创建时间：2017-09-21
- * @version
+ * 时间操作工具
+ * @Author Jenvi Sue
+ * @Date 2017/10/21 10:44
  */
 public class DateUtil {
 

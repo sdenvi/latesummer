@@ -2,9 +2,15 @@ package com.latesummer.util;
 
 import java.util.Random;
 
+/**
+ * @Author Jenvi Sue
+ * @Date 2017/10/12 10:35
+ */
 public class CalculateUtil {
 
-	// 随机码字典集
+	/**
+	 * 随机码字典集
+	 */
 	private static final String RANDOM_STR = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
 	/**
@@ -23,7 +29,6 @@ public class CalculateUtil {
 	/**
 	 * 取某个范围的任意数
 	 * 
-	 * @param min
 	 * @param max
 	 * @return
 	 */
@@ -43,7 +48,8 @@ public class CalculateUtil {
 		String n = "";
 		int getNum;
 		do {
-			getNum = Math.abs(rd.nextInt(Integer.MAX_VALUE)) % 10 + 48;// 产生数字0-9的随机数
+			// 产生数字0-9的随机数
+			getNum = Math.abs(rd.nextInt(Integer.MAX_VALUE)) % 10 + 48;
 			char num1 = (char) getNum;
 			String dn = Character.toString(num1);
 			n += dn;
@@ -63,7 +69,8 @@ public class CalculateUtil {
 		StringBuffer sb = new StringBuffer();
 
 		for (int i = 0; i < sum; ++i) {
-			int number = random.nextInt(62);// [0,62)
+			// [0,62)
+			int number = random.nextInt(62);
 
 			sb.append(RANDOM_STR.charAt(number));
 		}
@@ -78,8 +85,8 @@ public class CalculateUtil {
 				'U', 'V', 'W', 'X', 'Y', 'Z', '2', '3', '4', '5', '6', '7', '8', '9' };
 		Random random = new Random();
 		StringBuilder s = new StringBuilder();
-		for (int i = 0; i < 4; i++) {
-			String r = String.valueOf(codeSeq[random.nextInt(codeSeq.length)]);// random.nextInt(10));
+		for (int i = 0, count = 4; i < count; i++) {
+			String r = String.valueOf(codeSeq[random.nextInt(codeSeq.length)]);
 			s.append(r);
 		}
 		return s.toString();
