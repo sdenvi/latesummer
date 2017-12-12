@@ -5,8 +5,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Maps;
 import com.latesummer.domain.LearnResouce;
 import com.latesummer.service.LearnService;
-import com.latesummer.utils.ServletUtil;
-import com.latesummer.utils.StringUtil;
+import com.latesummer.util.ServletUtil;
+import com.latesummer.util.StringUtil;
 
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
@@ -33,7 +33,9 @@ import java.util.Map;
 
 /**
  * 教程页面
- * Create By Jenvi Sue On 2017年10月25日
+ *
+ * @Author Jenvi Sue
+ * @Date 2017/11/25 1:07
  */
 @Controller
 @RequestMapping("/learn")
@@ -46,7 +48,7 @@ public class LearnController {
         return "learn-resource";
     }
     
-    // 创建线程安全的Map 
+    /** 创建线程安全的Map */
     static Map<Long, LearnResouce> learnResouce = Collections.synchronizedMap(new HashMap<Long, LearnResouce>()); 
     
     @ApiOperation(value = "学习资源分页列表",notes = "可根据条件搜索查询")
@@ -56,11 +58,13 @@ public class LearnController {
     })
     @RequestMapping(value = "/queryLeanList",method = RequestMethod.POST,produces="application/json;charset=UTF-8")
     public void queryLearnList(HttpServletRequest request , HttpServletResponse response){
-        String page = request.getParameter("page"); // 取得当前页数,注意这是jqgrid自身的参数
-        String rows = request.getParameter("rows"); // 取得每页显示行数，,注意这是jqgrid自身的参数
+		// 取得当前页数,注意这是jqgrid自身的参数
+        String page = request.getParameter("page");
+		// 取得每页显示行数，,注意这是jqgrid自身的参数
+        String rows = request.getParameter("rows");
         String author = request.getParameter("author");
         String title = request.getParameter("title");
-        
+
         //封装搜索参数
         Map<String, String> params = Maps.newHashMap();
         params.put("author", author);
@@ -72,8 +76,10 @@ public class LearnController {
         
         JSONObject jo=new JSONObject();
         jo.put("rows", rs.getContent());
-        jo.put("total", rs.getTotalPages());//总页数
-        jo.put("records",rs.getTotalElements());//查询出的总记录数
+		//总页数
+        jo.put("total", rs.getTotalPages());
+		//查询出的总记录数
+        jo.put("records",rs.getTotalElements());
         ServletUtil.createSuccessResponse(200, jo, response);
     }
     
@@ -212,15 +218,6 @@ public class LearnController {
 		if (!StringUtil.isNull(url)) {
 			learnResouce.setUrl(url);
 		}
-		/*if (StringUtil.isNotBlank(author)) {
-			learnResouce.setAuthor(author);
-		} else {
-			HttpSession session = request.getSession();
-			SessionUser sessioUser = (SessionUser) session.getAttribute(SessionConstant.USER);
-			if (sessioUser != null) {
-				address.setUserId(sessioUser.getUserId());
-			}
-		}*/
 		return learnResouce;
 	}
 }

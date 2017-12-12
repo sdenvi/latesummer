@@ -51,8 +51,8 @@
 
 		<dependency>
 			<groupId>com.alibaba</groupId>
-			<artifactId>druid</artifactId>
-			<version>1.0.19</version>
+			<artifactId>druid-spring-boot-starter</artifactId>
+			<version>1.1.5</version>
 		</dependency>
 
 		<dependency>
@@ -83,6 +83,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+
+		<!-- 添加redis支持 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
 		
 		<!-- lombok -->
         <dependency>
@@ -110,6 +116,17 @@
 		  <artifactId>swagger-bootstrap-ui</artifactId>
 		  <version>1.6</version>
 		</dependency>
+		
+	    <dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.14</version>
+		</dependency>  
+		
+		<dependency> 
+            <groupId>org.apache.httpcomponents</groupId> 
+            <artifactId>httpclient</artifactId> 
+        </dependency>
         
 		<!-- maven添加本地jar -->
 		<!-- 
