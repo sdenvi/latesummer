@@ -1,4 +1,4 @@
-package com.latesummer.utils;
+package com.latesummer.util;
 
 import org.apache.commons.lang3.time.DateFormatUtils;
 

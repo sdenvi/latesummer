@@ -1,4 +1,4 @@
-package com.latesummer.utils;
+package com.latesummer.util;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;

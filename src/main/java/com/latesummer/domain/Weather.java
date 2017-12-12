@@ -5,6 +5,8 @@ import java.util.List;
 
 /**
  * 天气信息.
+ * @Author Jenvi Sue
+ * @Date 2017/12/12 9:31
  */
 public class Weather implements Serializable {
 	 

@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.latesummer.domain.WeatherResponse;
 import com.latesummer.service.WeatherDataService;
-import com.latesummer.utils.RedisUtil;
+import com.latesummer.util.RedisUtil;
 
 /**
  *
