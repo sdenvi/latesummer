@@ -6,7 +6,7 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
-import com.latesummer.utils.Constants;
+import com.latesummer.util.Constants;
 
 import io.swagger.annotations.ApiModelProperty;
 
