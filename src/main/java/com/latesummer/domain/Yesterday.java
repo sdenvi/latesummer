@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 /**
  * 昨日天气信息.
+ * @Author Jenvi Sue
+ * @Date 2017/12/12 9:30
  */
 public class Yesterday implements Serializable {
  

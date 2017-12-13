@@ -4,14 +4,25 @@ import java.io.Serializable;
 
 /**
  * 返回消息对象.
+ * @Author Jenvi Sue
+ * @Date 2017/12/12 9:30
  */
 public class WeatherResponse implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Weather data; // 消息数据
-	private String status; // 消息状态
-	private String desc; // 消息描述
+	/**
+	 * 消息数据
+	 */
+	private Weather data;
+	/**
+	 * 消息状态
+	 */
+	private String status;
+	/**
+	 * 消息描述
+	 */
+	private String desc;
 
 	public Weather getData() {
 		return data;

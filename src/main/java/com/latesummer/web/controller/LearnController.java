@@ -5,8 +5,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Maps;
 import com.latesummer.domain.LearnResouce;
 import com.latesummer.service.LearnService;
-import com.latesummer.utils.ServletUtil;
-import com.latesummer.utils.StringUtil;
+import com.latesummer.util.ServletUtil;
+import com.latesummer.util.StringUtil;
 
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;

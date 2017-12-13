@@ -1,4 +1,4 @@
-package com.latesummer.utils;
+package com.latesummer.util;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,7 +9,7 @@ import java.util.zip.ZipOutputStream;
 /**
  * zip压缩工具类
  */
-public class ZipUtils {
+public class ZipUtil {
 
     public static void zipFolder(String srcFolder, String destZipFile) throws Exception {
         ZipOutputStream zip = null;

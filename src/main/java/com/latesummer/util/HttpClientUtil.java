@@ -1,4 +1,4 @@
-package com.latesummer.utils;
+package com.latesummer.util;
 
 import org.apache.http.config.Registry;
 import org.apache.http.config.RegistryBuilder;
@@ -22,9 +22,10 @@ import java.security.cert.X509Certificate;
 
 /**
  * 支持https 需要自定义httpclient注入
- * Create By Jenvi Sue On 2017年12月9日
+ * @Author Jenvi Sue
+ * @Date 2017/12/12 10:50
  */
-public class HttpClientUtils {
+public class HttpClientUtil {
 
 	public static CloseableHttpClient acceptsUntrustedCertsHttpClient()
 			throws KeyStoreException, NoSuchAlgorithmException, KeyManagementException {

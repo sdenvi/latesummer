@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.latesummer.domain.User;
-import com.latesummer.domain.UserRepository;
+import com.latesummer.repository.UserRepository;
 import com.latesummer.service.UserService;
 
 @Service

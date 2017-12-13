@@ -20,7 +20,7 @@ import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.client.RestOperations;
 import org.springframework.web.client.RestTemplate;
 
-import com.latesummer.utils.HttpClientUtils;
+import com.latesummer.util.HttpClientUtil;
 
 /**
  * REST配置
@@ -46,7 +46,7 @@ public class RestConfiguration {
 
 		CloseableHttpClient httpClient = null;
 		try {
-			httpClient = HttpClientUtils.acceptsUntrustedCertsHttpClient();
+			httpClient = HttpClientUtil.acceptsUntrustedCertsHttpClient();
 		} catch (KeyManagementException e) {
 			e.printStackTrace();
 		} catch (KeyStoreException e) {

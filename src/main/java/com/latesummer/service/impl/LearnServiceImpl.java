@@ -3,9 +3,9 @@ package com.latesummer.service.impl;
 import com.latesummer.common.dao.BaseDao;
 import com.latesummer.common.service.BaseServiceImpl;
 import com.latesummer.domain.LearnResouce;
-import com.latesummer.domain.LearnResouceRepository;
+import com.latesummer.repository.LearnResouceRepository;
 import com.latesummer.service.LearnService;
-import com.latesummer.utils.StringUtil;
+import com.latesummer.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.List;

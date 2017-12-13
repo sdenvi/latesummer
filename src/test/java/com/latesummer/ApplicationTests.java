@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.latesummer.domain.UserRepository;
+import com.latesummer.repository.UserRepository;
 
 //@RunWith(SpringJUnit4ClassRunner.class)
 //@SpringApplicationConfiguration(Application.class)

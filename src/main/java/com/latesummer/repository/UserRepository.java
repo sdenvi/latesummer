@@ -1,7 +1,8 @@
-package com.latesummer.domain;
+package com.latesummer.repository;
 
 import java.util.List;
 
+import com.latesummer.domain.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import com.latesummer.common.dao.BaseDao;
