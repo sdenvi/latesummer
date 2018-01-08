@@ -16,11 +16,11 @@ public class IndexController {
 
     @RequestMapping("/main")
     public String main(){
-        return "main";
+        return "admin/main";
     }
 
     @RequestMapping("/index")
     public String index(){
-        return "index";
+        return "admin/index";
     }
 }
