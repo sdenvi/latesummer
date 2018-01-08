@@ -55,7 +55,7 @@ public class NIOTest {
         // 获取容器buffer
         ByteBuffer buffer = ByteBuffer.allocate(1024000);
         while (true){
-            // 判断是否读完文件4
+            // 判断是否读完文件
             int eof = inChannel.read(buffer);
             if (eof == -1){
                 break;
