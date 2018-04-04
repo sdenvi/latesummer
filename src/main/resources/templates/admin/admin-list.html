@@ -58,14 +58,14 @@
             <th>操作</th>
         </thead>
         <tbody>
-          <tr th:each="learn : ${rs}">
+          <tr th:each="learn : ${rows}">
             <td>
               <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i class="layui-icon">&#xe605;</i></div>
             </td>
             <td th:text="${learn.id}"></td>
             <td th:text="${learn.author}"></td>
             <td th:text="${learn.title}"></td>
-            <td th:href="${learn.title}"></td>
+            <td th:href="${learn.url}"></td>
             <td class="td-status">
               <span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span>
             </td>
@@ -83,7 +83,8 @@
           </tr>
         </tbody>
       </table>
-      <div class="page">
+
+      <!--<div class="page">
         <div>
           <a class="prev" href="">&lt;&lt;</a>
           <a class="num" href="">1</a>
@@ -92,12 +93,38 @@
           <a class="num" href="">489</a>
           <a class="next" href="">&gt;&gt;</a>
         </div>
+      </div>-->
+      <div id="paginate">
+        <input type="text" id="totalNum" th:value="${records}" >/>
+        <input type="text" id="currentPage" th:value="${currentPage}" >/>
+        <input type="text" id="pageNumber" value="10"/>
       </div>
     </div>
     <script>
-      layui.use('laydate', function(){
+      layui.use(['laydate','laypage'], function(){
+        var totalNum = $("#totalNum").val();
+        var currentPage = $("#currentPage").val();
+        var pageNumber = $("#pageNumber").val();
         var laydate = layui.laydate;
-        
+        var laypage = layui.laypage;
+        //执行一个laypage实例
+        laypage.render({
+            elem: 'paginate'
+            ,count: totalNum
+            ,skip: true
+            ,curr: location.hash.replace('#!'+pageNumber+'=', '')
+            ,hash: pageNumber
+            ,first: false
+            ,last: false
+            ,jump: function(obj, first){
+                if(!first){ //点击跳页触发函数自身，并传递当前页：obj.curr
+                    //获取点击的页码
+                    var currentPage = obj.curr;
+                    var actionUrl = "/admin_list?currentPage=" + currentPage;
+                    window.location.href = actionUrl;
+                }
+            }
+        });
         //执行一个laydate实例
         laydate.render({
           elem: '#start' //指定元素

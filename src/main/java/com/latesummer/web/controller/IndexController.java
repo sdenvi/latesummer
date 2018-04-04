@@ -48,9 +48,9 @@ public class IndexController {
     public ModelAndView admin_list(HttpServletRequest request , HttpServletResponse response){
         List<LearnResouce> learnList =new ArrayList<LearnResouce>();
         //封装搜索参数
-        // 取得当前页数,注意这是jqgrid自身的参数
-        String page = request.getParameter("page");
-        // 取得每页显示行数，,注意这是jqgrid自身的参数
+        // 取得当前页数
+        String currentPage = request.getParameter("currentPage");
+        // 取得每页显示行数
         String rows = request.getParameter("rows");
         String author = request.getParameter("author");
         String title = request.getParameter("title");
@@ -59,11 +59,11 @@ public class IndexController {
         params.put("title", title);
         //分页信息
         Sort sort = new Sort(Sort.Direction.ASC, "id");
-        Pageable pageable = new PageRequest(NumberUtils.toInt(page, 1) - 1, NumberUtils.toInt(rows,10), sort);
+        Pageable pageable = new PageRequest(NumberUtils.toInt(currentPage, 1) - 1, NumberUtils.toInt(rows,10), sort);
         Page<LearnResouce> rs = this.learnService.learnResouceListByPage(params, pageable);
         ModelAndView modelAndView = new ModelAndView("/admin/admin-list");
-        modelAndView.addObject("rs", rs);
         modelAndView.addObject("rows",  rs.getContent());
+        modelAndView.addObject("currentPage",  currentPage);
         modelAndView.addObject("total",  rs.getTotalPages());
         modelAndView.addObject("records",  rs.getTotalElements());
         return modelAndView;
@@ -72,5 +72,10 @@ public class IndexController {
     @RequestMapping("/welcome")
     public String welcome(){
         return "admin/welcome";
+    }
+
+    @RequestMapping("/test")
+    public String test(){
+        return "admin/test";
     }
 }
