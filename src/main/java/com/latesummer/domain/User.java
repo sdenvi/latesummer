@@ -8,6 +8,8 @@ import javax.persistence.Table;
 
 import com.latesummer.common.domain.BaseModel;
 
+import java.util.Date;
+
 /**
  * Create By Jenvi Sue On 2017年11月21日
  */
@@ -20,12 +22,18 @@ public class User implements BaseModel<Long> {
 	@Id
 	@GeneratedValue
 	private Long id;
-	@Column(nullable = false)
 	private String name;
-	@Column(nullable = false, unique = true)
-	private Integer age;
+	private String email;
+	private Integer certificateType;
+	private String certificateNum;
+	private String refereeName;
+	private Integer isUsed;
+	private Integer isAdvanced;
+	private Date createTime;
+	private String createBy;
+	private Date updateTime;
+	private String updateBy;
 
-	@Override
 	public Long getId() {
 		return id;
 	}
@@ -42,11 +50,83 @@ public class User implements BaseModel<Long> {
 		this.name = name;
 	}
 
-	public Integer getAge() {
-		return age;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setAge(Integer age) {
-		this.age = age;
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Integer getCertificateType() {
+		return certificateType;
+	}
+
+	public void setCertificateType(Integer certificateType) {
+		this.certificateType = certificateType;
+	}
+
+	public String getCertificateNum() {
+		return certificateNum;
+	}
+
+	public void setCertificateNum(String certificateNum) {
+		this.certificateNum = certificateNum;
+	}
+
+	public String getRefereeName() {
+		return refereeName;
+	}
+
+	public void setRefereeName(String refereeName) {
+		this.refereeName = refereeName;
+	}
+
+	public Integer getIsUsed() {
+		return isUsed;
+	}
+
+	public void setIsUsed(Integer isUsed) {
+		this.isUsed = isUsed;
+	}
+
+	public Integer getIsAdvanced() {
+		return isAdvanced;
+	}
+
+	public void setIsAdvanced(Integer isAdvanced) {
+		this.isAdvanced = isAdvanced;
+	}
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	public String getCreateBy() {
+		return createBy;
+	}
+
+	public void setCreateBy(String createBy) {
+		this.createBy = createBy;
+	}
+
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
+
+	public String getUpdateBy() {
+		return updateBy;
+	}
+
+	public void setUpdateBy(String updateBy) {
+		this.updateBy = updateBy;
 	}
 }

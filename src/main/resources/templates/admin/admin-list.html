@@ -50,6 +50,7 @@
             <th>
               <div class="layui-unselect header layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
             </th>
+            <th>序号</th>
             <th>ID</th>
             <th>作者</th>
             <th>Title</th>
@@ -58,10 +59,11 @@
             <th>操作</th>
         </thead>
         <tbody>
-          <tr th:each="learn : ${rows}">
+          <tr th:each="learn,learnStart : ${rows}">
             <td>
               <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i class="layui-icon">&#xe605;</i></div>
             </td>
+            <td th:text="${learnStart.index + 1}"></td>
             <td th:text="${learn.id}"></td>
             <td th:text="${learn.author}"></td>
             <td th:text="${learn.title}"></td>
@@ -111,11 +113,7 @@
         laypage.render({
             elem: 'paginate'
             ,count: totalNum
-            ,skip: true
-            ,curr: location.hash.replace('#!'+pageNumber+'=', '')
-            ,hash: pageNumber
-            ,first: false
-            ,last: false
+            ,curr: currentPage || 1
             ,jump: function(obj, first){
                 if(!first){ //点击跳页触发函数自身，并传递当前页：obj.curr
                     //获取点击的页码

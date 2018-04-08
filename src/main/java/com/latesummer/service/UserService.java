@@ -1,21 +1,22 @@
 package com.latesummer.service;
 
 import java.util.List;
+import java.util.Map;
 
+import com.latesummer.domain.LearnResouce;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import com.latesummer.domain.User;
 
 public interface UserService {
-	public Page<User> findAll(Pageable pageable);
+	void add(User user);
 
-	public void saveUser(User book);
+	void update(User user);
 
-	public User findOne(long id);
+	void deleteByIds(String[] ids);
 
-	public void delete(long id);
+	User queryLearnResouceById(Long id);
 
-	public List<User> findByName(String name);
-
+	Page<User> userListByPage(Map<String, String> params, Pageable pageable);
 }

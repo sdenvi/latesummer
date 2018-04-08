@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../../../static/css/font.css" th:href="@{/css/font.css}">
+    <link rel="stylesheet" href="../../../static/css/xadmin.css" th:href="@{/css/xadmin.css}">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../../static/lib/layui/layui.js" th:href="@{/lib/layui/layui.js}" charset="utf-8"></script>
+    <script type="text/javascript" src="../../../static/js/xadmin.js" th:href="@{/js/xadmin.js}"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  
+  <body>
+    <div class="x-nav">
+      <span class="layui-breadcrumb">
+        <a href="">首页</a>
+        <a href="">用户管理</a>
+        <a>
+          <cite>用户列表</cite></a>
+      </span>
+      <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);" title="刷新">
+        <i class="layui-icon" style="line-height:30px">ဂ</i></a>
+    </div>
+    <div class="x-body">
+      <div class="layui-row">
+        <form class="layui-form layui-col-md12 x-so">
+          <input class="layui-input" placeholder="注册开始时间" name="start" id="start">
+          <input class="layui-input" placeholder="注册结束时间" name="end" id="end">
+          <input type="text" name="username"  placeholder="请输入姓名" autocomplete="off" class="layui-input">
+          <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+        </form>
+      </div>
+      <xblock>
+        <span class="x-right" style="line-height:40px" th:text="'共有数据：' + ${records} + '条'" >共有数据：10 条</span>
+      </xblock>
+      <table class="layui-table">
+        <thead>
+          <tr>
+            <th>序号</th>
+            <!--<th>用户ID</th>-->
+            <th>姓名</th>
+            <th>邮箱</th>
+            <th>证件类型</th>
+            <th>证件号</th>
+            <th>注册时间</th>
+            <th>推荐人姓名</th>
+            <th>是否锁定</th>
+            <th>高级认证</th>
+            <th>操作</th>
+        </thead>
+        <tbody>
+          <tr th:each="user,userStart : ${rows}">
+            <td th:text="${userStart.index + 1}"></td>
+            <!--<td th:text="${user.id}"></td>-->
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.certificateType eq 1 ? '身份证':'其他'}"></td>
+            <td th:text="${user.certificateNum}"></td>
+            <td th:text="${user.createTime}"></td>
+            <td th:text="${user.refereeName}"></td>
+            <td class="td-status" th:text="${user.isUsed eq 1 ? '否':'是'}"></td>
+            <td th:text="${user.isAdvanced eq 1 ? '是':'否'}"></td>
+            <td class="td-manage">
+              <a title="查看"  onclick="x_admin_show('查看','admin-edit.html')" href="javascript:;">
+                <i class="layui-icon">&#xe60a;</i>
+              </a>
+              <a title="编辑"  onclick="x_admin_show('编辑','user/edit')" href="javascript:;">
+                <i class="layui-icon">&#xe642;</i>
+              </a>
+              <a onclick="member_stop(this,'10001')" href="javascript:;"  title="锁定">
+                <i class="layui-icon">&#xe601;</i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!--<div class="page">
+        <div>
+          <a class="prev" href="">&lt;&lt;</a>
+          <a class="num" href="">1</a>
+          <span class="current">2</span>
+          <a class="num" href="">3</a>
+          <a class="num" href="">489</a>
+          <a class="next" href="">&gt;&gt;</a>
+        </div>
+      </div>-->
+      <div id="paginate">
+        <input type="hidden" id="totalNum" th:value="${records}" >/>
+        <input type="hidden" id="currentPage" th:value="${currentPage}" >/>
+        <input type="hidden" id="pageNumber" value="10"/>
+      </div>
+    </div>
+    <script>
+      layui.use(['laydate','laypage'], function(){
+        var totalNum = $("#totalNum").val();
+        var currentPage = $("#currentPage").val();
+        var pageNumber = $("#pageNumber").val();
+        var laydate = layui.laydate;
+        var laypage = layui.laypage;
+        //执行一个laypage实例
+        laypage.render({
+            elem: 'paginate'
+            ,count: totalNum
+            ,curr: currentPage || 1
+            ,jump: function(obj, first){
+                if(!first){ //点击跳页触发函数自身，并传递当前页：obj.curr
+                    //获取点击的页码
+                    var currentPage = obj.curr;
+                    var actionUrl = "/admin_list?currentPage=" + currentPage;
+                    window.location.href = actionUrl;
+                }
+            }
+        });
+        //执行一个laydate实例
+        laydate.render({
+          elem: '#start' //指定元素
+        });
+
+        //执行一个laydate实例
+        laydate.render({
+          elem: '#end' //指定元素
+        });
+      });
+
+       /*用户-停用*/
+      function member_stop(obj){
+          var isUser = $(obj).parents("tr").find(".td-status").html();
+          if(isUser =='否'){
+              layer.confirm('确认要锁定吗？',function(){
+                  $(obj).find('i').html('&#xe62f;');
+                  //发异步把用户状态进行更改
+                  $(obj).parents("tr").find(".td-status").html('是');
+                  layer.msg('已锁定!',{icon: 5,time:1000});
+              });
+          } else {
+              layer.confirm('确认要解锁吗？',function(){
+                  $(obj).find('i').html('&#xe601;');
+                  $(obj).parents("tr").find(".td-status").html('否');
+                  layer.msg('已解锁!',{icon: 1,time:1000});
+              });
+          }
+      }
+    </script>
+  </body>
+
+</html>

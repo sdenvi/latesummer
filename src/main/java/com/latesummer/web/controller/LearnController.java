@@ -52,10 +52,10 @@ public class LearnController {
     static Map<Long, LearnResouce> learnResouce = Collections.synchronizedMap(new HashMap<Long, LearnResouce>()); 
     
     @ApiOperation(value = "学习资源分页列表",notes = "可根据条件搜索查询")
-    @ApiImplicitParams({
-    	@ApiImplicitParam(paramType="query", name = "author", value = "用户名", required = false, dataType = "String"),
-    	@ApiImplicitParam(paramType="query", name = "title", value = "标题", required = false, dataType = "String"),
-    })
+	@ApiImplicitParams({
+			@ApiImplicitParam(paramType="query", name = "author", value = "用户名", required = false, dataType = "String"),
+			@ApiImplicitParam(paramType="query", name = "title", value = "标题", required = false, dataType = "String"),
+	})
     @RequestMapping(value = "/queryLeanList",method = RequestMethod.POST,produces="application/json;charset=UTF-8")
     public void queryLearnList(HttpServletRequest request , HttpServletResponse response){
 		// 取得当前页数,注意这是jqgrid自身的参数
